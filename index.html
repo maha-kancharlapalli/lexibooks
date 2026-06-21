@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Home | Lexibooks</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+  <!-- ══ NAV ══ -->
+  <nav id="navbar">
+    <a href="#home" class="nav-logo"><span>LEXI</span>BOOKS</a>
+    <ul class="nav-links">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">Mission</a></li>
+      <li><a href="#how">How It Works</a></li>
+      <li><a href="#books">Books</a></li>
+      <li><a href="#questionnaire">Questionnaire</a></li>
+      <li><a href="#team">Team</a></li>
+    </ul>
+    <div class="nav-right">
+      <button type="button" class="nav-auth-btn" id="show-signin">Sign In</button>
+      <button type="button" class="nav-auth-btn nav-auth-btn-secondary" id="show-register">Register</button>
+      <button type="button" class="nav-cart" id="cart-toggle" aria-label="Open cart" aria-expanded="false">
+        Cart
+        <span class="cart-count" id="cart-count">0</span>
+      </button>
+      <a href="https://www.instagram.com/lexibookstore/" target="_blank" class="nav-insta" aria-label="Instagram">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path
+            d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+        </svg>
+      </a>
+    </div>
+  </nav>
+
+  <!-- ══ HERO ══ -->
+  <section class="hero" id="home">
+    <div class="hero-bg"></div>
+    <div class="hero-content">
+      <p class="hero-eyebrow">A Community-Centered · Student-Led Literary Start-Up</p>
+      <h1 class="hero-title">
+        LEXI
+        <em>BOOKSTORE</em>
+      </h1>
+      <p class="hero-sub">Bringing people back to books — affectively and at no cost.</p>
+      <a href="#questionnaire" class="hero-cta">Get Your Book Match</a>
+    </div>
+    <div class="hero-scroll">
+      <div class="hero-scroll-line"></div>
+      <span>Scroll</span>
+    </div>
+  </section>
+
+  <!-- ══ DESERT / STATS ══ -->
+  <section class="desert" id="mission">
+    <h2 class="desert-title reveal">Our generation is crossing a desert.<br>A desert of distractions.</h2>
+    <div class="stats">
+      <div class="stat reveal">
+        <div class="stat-num">43%</div>
+        <div class="stat-desc">of K-12 students say they rarely or never read for pleasure</div>
+      </div>
+      <div class="stat reveal" style="transition-delay: 0.15s">
+        <div class="stat-num">35%</div>
+        <div class="stat-desc">of K-12 students say they dislike reading altogether</div>
+      </div>
+    </div>
+    <p class="desert-source">Source: Forbes, 2025 — "Gen Z is reading less. What that means in the age of ready
+      answers."</p>
+  </section>
+
+  <!-- ══ MARQUEE ══ -->
+  <div class="marquee-wrap" aria-hidden="true">
+    <div class="marquee-track">
+      <span class="marquee-item">but the solution isn't complicated</span>
+      <span class="marquee-dot">·</span>
+      <span class="marquee-item">but the solution isn't complicated</span>
+      <span class="marquee-dot">·</span>
+      <span class="marquee-item">but the solution isn't complicated</span>
+      <span class="marquee-dot">·</span>
+      <span class="marquee-item">but the solution isn't complicated</span>
+      <span class="marquee-dot">·</span>
+      <span class="marquee-item">but the solution isn't complicated</span>
+      <span class="marquee-dot">·</span>
+      <span class="marquee-item">but the solution isn't complicated</span>
+      <span class="marquee-dot">·</span>
+      <span class="marquee-item">but the solution isn't complicated</span>
+      <span class="marquee-dot">·</span>
+      <span class="marquee-item">but the solution isn't complicated</span>
+      <span class="marquee-dot">·</span>
+    </div>
+  </div>
+
+  <!-- ══ ABOUT ══ -->
+  <div class="about-wrapper" id="about">
+    <div class="about">
+      <div>
+        <p class="about-label reveal">About</p>
+        <div class="about-accent reveal"></div>
+        <h2 class="about-visual-small" style="text-decoration: none; font-size: 50px">We believe that reading should
+          feel <span class="highlight">accessible</span>, <span class="highlight">personal</span> and <span
+            class="highlight">free</span>.</h2>
+        </h2>
+      </div>
+      <div class="about-visual reveal">
+        <div class="about-visual-inner">
+          <p class="about-text-small">Our answer is simple:</p>
+          <p class="about-text-big">Bring people back to books affectively and at no cost.</p>
+          <p class="about-text small">We aim to empower our community academically and creatively by offering an
+            alternative to social media and overly condensed literature.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ HOW IT WORKS ══ -->
+  <section class="how" id="how">
+    <p class="section-label reveal">Features</p>
+    <h2 class="section-title reveal">How Our System Works</h2>
+    <p class="section-sub reveal">A community-first, donation-based system that makes it easy for you, your child, your
+      students or your peers to start reading.</p>
+    <div class="steps">
+      <div class="step reveal">
+        <span class="step-num">01</span>
+        <div class="step-name">Questionnaire</div>
+        <p class="step-desc">Tell us your interests, attention span and preferred genres.</p>
+      </div>
+      <div class="step reveal" style="transition-delay: 0.1s">
+        <span class="step-num">02</span>
+        <div class="step-name">Match</div>
+        <p class="step-desc">Each match is selected by our team, curated just for you.</p>
+      </div>
+      <div class="step reveal" style="transition-delay: 0.2s">
+        <span class="step-num">03</span>
+        <div class="step-name">Pick-Up</div>
+        <p class="step-desc">Simple, free and community-based pick up guidelines.</p>
+      </div>
+      <div class="step reveal" style="transition-delay: 0.3s">
+        <span class="step-num">04</span>
+        <div class="step-name">Read. Grow.</div>
+        <p class="step-desc">Experience all the benefits: increased attention span, cognitive development, stress
+          reduction.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ BOOKS ══ -->
+  <section class="books" id="books">
+    <div class="books-header">
+      <p class="section-label" style="color: var(--sky-dark)">Curated Picks</p>
+      <h2 class="books-title">Books You Might Love</h2>
+    </div>
+    <div class="books-grid">
+
+      <div class="book-card reveal">
+        <img class="book-cover"
+          src="https://static.wixstatic.com/media/d771aa_55a1a2e934734eb69cbcba2a9da0ae69~mv2.jpg/v1/crop/x_0,y_93,w_661,h_814/fill/w_315,h_388,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/alchemist.jpg"
+          alt="The Alchemist" loading="lazy" />
+        <div class="book-info">
+          <div class="book-genre">Adventure Fiction</div>
+          <div class="book-title">The Alchemist by Paulo Coelho</div>
+          <div class="book-quote">"The secret of life, though, is to fall seven times and to get up eight times."</div>
+        </div>
+      </div>
+
+      <div class="book-card reveal">
+        <img class="book-cover"
+          src="https://static.wixstatic.com/media/d771aa_e30969cdc1824567a2003315f1dd878c~mv2.jpg/v1/crop/x_0,y_93,w_661,h_814/fill/w_315,h_388,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/thegiver.jpg"
+          alt="The Giver" loading="lazy" />
+        <div class="book-info">
+          <div class="book-genre">Dystopian</div>
+          <div class="book-title">The Giver by Lois Lowry</div>
+          <div class="book-quote">"We gained control of many things. But we had to let go of others."</div>
+        </div>
+      </div>
+
+      <div class="book-card reveal">
+        <img class="book-cover"
+          src="https://static.wixstatic.com/media/d771aa_e9966cec13a840d7a534e5535e8d506d~mv2.jpg/v1/crop/x_0,y_104,w_643,h_792/fill/w_315,h_388,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/sevenhus.jpg"
+          alt="Seven Husbands of Evelyn Hugo" loading="lazy" />
+        <div class="book-info">
+          <div class="book-genre">Romance</div>
+          <div class="book-title">The Seven Husbands of Evelyn Hugo by Taylor Jenkins Reid</div>
+          <div class="book-quote">"Never let anyone make you feel ordinary."</div>
+        </div>
+      </div>
+
+      <div class="book-card reveal">
+        <img class="book-cover"
+          src="https://static.wixstatic.com/media/d771aa_df91bb4fc20347adb1a65037f1657d75~mv2.jpg/v1/crop/x_0,y_86,w_673,h_829/fill/w_315,h_388,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/edwardtulane.jpg"
+          alt="Edward Tulane" loading="lazy" />
+        <div class="book-info">
+          <div class="book-genre">Children's Literature</div>
+          <div class="book-title">The Miraculous Journey of Edward Tulane by Kate DiCamillo</div>
+          <div class="book-quote">"If you have no intention of loving or being loved, the whole journey is pointless."
+          </div>
+        </div>
+      </div>
+
+      <div class="book-card reveal">
+        <img class="book-cover"
+          src="https://static.wixstatic.com/media/d771aa_bf7e2a6a6a154f9cbf7db16981110862~mv2.jpg/v1/crop/x_0,y_73,w_694,h_855/fill/w_315,h_388,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/ishiguro.jpg"
+          alt="Never Let Me Go" loading="lazy" />
+        <div class="book-info">
+          <div class="book-genre">Science / Speculative Fiction</div>
+          <div class="book-title">Never Let Me Go by Kazuo Ishiguro</div>
+          <div class="book-quote">"Memories, even your most precious ones, fade surprisingly quickly."</div>
+        </div>
+      </div>
+
+      <div class="book-card reveal">
+        <img class="book-cover"
+          src="https://static.wixstatic.com/media/d771aa_9b4961cbfe5d4bf2b64a88329f55d0e8~mv2.webp/v1/fill/w_315,h_388,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/pachinko.webp"
+          alt="Pachinko" loading="lazy" />
+        <div class="book-info">
+          <div class="book-genre">Historical Fiction</div>
+          <div class="book-title">Pachinko by Min Jin Lee</div>
+          <div class="book-quote">"Living every day in the presence of those who refuse to acknowledge your humanity
+            takes great courage."</div>
+        </div>
+      </div>
+
+      <div class="book-card reveal">
+        <img class="book-cover"
+          src="https://static.wixstatic.com/media/d771aa_9c67c8092649492dbf391228b41d34ca~mv2.jpg/v1/crop/x_0,y_58,w_418,h_515/fill/w_315,h_388,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/dobelli.jpg"
+          alt="The Art of Thinking Clearly" loading="lazy" />
+        <div class="book-info">
+          <div class="book-genre">Self-Help</div>
+          <div class="book-title">The Art of Thinking Clearly by Rolf Dobelli</div>
+          <div class="book-quote">"We prefer a simple lie to a complex truth."</div>
+        </div>
+      </div>
+
+      <div class="book-card reveal">
+        <img class="book-cover"
+          src="https://static.wixstatic.com/media/d771aa_5cde328cc9bb438eacba251d5e7f0276~mv2.jpg/v1/crop/x_0,y_57,w_419,h_516/fill/w_315,h_388,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/mcmanus.jpg"
+          alt="One Of Us Is Lying" loading="lazy" />
+        <div class="book-info">
+          <div class="book-genre">Mystery</div>
+          <div class="book-title">One Of Us Is Lying by Karen M. McManus</div>
+          <div class="book-quote">"Things that break—be they bones, hearts, or promises—can be put back together again."
+          </div>
+        </div>
+      </div>
+
+      <div class="book-card reveal">
+        <img class="book-cover"
+          src="https://static.wixstatic.com/media/d771aa_6fa20899981446c7b7b4ed1118c5b33d~mv2.jpg/v1/fill/w_315,h_388,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/angiethomas.jpg"
+          alt="The Hate U Give" loading="lazy" />
+        <div class="book-info">
+          <div class="book-genre">Contemporary</div>
+          <div class="book-title">The Hate U Give by Angie Thomas</div>
+          <div class="book-quote">"What's the point of having a voice if you're going to be silent in those moments you
+            shouldn't be?"</div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ══ QUESTIONNAIRE CTA ══ -->
+  <section class="cta-section" id="questionnaire">
+    <p class="cta-eyebrow">Services</p>
+    <p class="cta-sub">Start with one page at a time.</p>
+    <div class="cta-big reveal">QUESTIONNAIRE</div>
+    <div class="cta-big-sub reveal">APP</div>
+    <a href="#" class="cta-badge">Coming Soon</a>
+  </section>
+
+  <!-- ══ DONATE ══ -->
+  <section class="donate" id="donate">
+    <h2 class="donate-title reveal">Support Our Mission</h2>
+    <p class="donate-sub reveal">
+      Lexi Bookstore is entirely student-led and community-supported.
+      Every book we give is free and every donation helps us reach more readers.
+      Your donation fuels the next generation of readers.
+    </p>
+    <div class="donate-contact reveal">
+      <p>Email: <a href="mailto:contact@lexibooks.store">contact@lexibooks.store</a></p>
+      <p>Instagram: <a href="https://www.instagram.com/lexibookstore/" target="_blank">@lexibookstore</a></p>
+    </div>
+  </section>
+
+  <!-- ══ FOOTER ══ -->
+  <footer>
+    <div class="footer-logo">LEXIBOOKS</div>
+    <div>© 2025 LexiBooks</div>
+  </footer>
+
+  <div class="auth-backdrop" id="auth-backdrop"></div>
+  <section class="auth-modal" id="auth-modal" aria-hidden="true">
+    <button type="button" class="auth-close" id="auth-close" aria-label="Close account panel">×</button>
+    <div class="auth-header">
+      <p class="cart-label">Account</p>
+      <h3 class="cart-title" id="auth-title">Sign in to Lexibooks</h3>
+      <p class="auth-copy" id="auth-copy">Use your email to access your reading picks and saved account details.</p>
+    </div>
+    <div class="auth-tabs">
+      <button type="button" class="auth-tab active" data-auth-tab="signin">Sign In</button>
+      <button type="button" class="auth-tab" data-auth-tab="register">Register</button>
+    </div>
+    <form class="auth-form active" id="signin-form">
+      <label>
+        Email
+        <input type="email" id="signin-email" required />
+      </label>
+      <label>
+        Password
+        <input type="password" id="signin-password" required />
+      </label>
+      <button type="submit" class="auth-submit">Sign In</button>
+      <p class="auth-message" id="signin-message"></p>
+    </form>
+    <form class="auth-form" id="register-form">
+      <label>
+        Full Name
+        <input type="text" id="register-name" required />
+      </label>
+      <label>
+        Email
+        <input type="email" id="register-email" required />
+      </label>
+      <label>
+        Password
+        <input type="password" id="register-password" minlength="6" required />
+      </label>
+      <button type="submit" class="auth-submit">Create Account</button>
+      <p class="auth-message" id="register-message"></p>
+    </form>
+  </section>
+
+  <div class="cart-backdrop" id="cart-backdrop"></div>
+  <aside class="cart-drawer" id="cart-drawer" aria-hidden="true">
+    <div class="cart-drawer-header">
+      <div>
+        <p class="cart-label">Your cart</p>
+        <h3 class="cart-title">Free book picks</h3>
+      </div>
+      <button type="button" class="cart-close" id="cart-close" aria-label="Close cart">×</button>
+    </div>
+    <div class="cart-items" id="cart-items"></div>
+    <div class="cart-footer">
+      <div class="cart-total-row">
+        <span>Total</span>
+        <strong id="cart-total">Free</strong>
+      </div>
+      <p class="cart-note">All book matches are free. This is a demo cart for your browsing experience.</p>
+      <button type="button" class="cart-checkout">Checkout</button>
+    </div>
+  </aside>
+
+  <script>
+    const CART_KEY = 'lexibooks-cart';
+
+    // Sticky nav
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      navbar.classList.toggle('scrolled', window.scrollY > 20);
+    });
+
+    // Scroll reveal
+    const reveals = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+          observer.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.1 });
+    reveals.forEach(el => observer.observe(el));
+
+    // Cart state
+    const cartToggle = document.getElementById('cart-toggle');
+    const cartClose = document.getElementById('cart-close');
+    const cartDrawer = document.getElementById('cart-drawer');
+    const cartBackdrop = document.getElementById('cart-backdrop');
+    const cartItems = document.getElementById('cart-items');
+    const cartCount = document.getElementById('cart-count');
+    const cartTotal = document.getElementById('cart-total');
+
+    function getCart() {
+      try {
+        return JSON.parse(localStorage.getItem(CART_KEY) || '[]');
+      } catch (error) {
+        return [];
+      }
+    }
+
+    function saveCart(cart) {
+      localStorage.setItem(CART_KEY, JSON.stringify(cart));
+    }
+
+    function formatCartCount(count) {
+      return count > 0 ? count : '0';
+    }
+
+    function openCart() {
+      cartDrawer.classList.add('open');
+      cartBackdrop.classList.add('open');
+      cartDrawer.setAttribute('aria-hidden', 'false');
+      cartToggle.setAttribute('aria-expanded', 'true');
+    }
+
+    function closeCart() {
+      cartDrawer.classList.remove('open');
+      cartBackdrop.classList.remove('open');
+      cartDrawer.setAttribute('aria-hidden', 'true');
+      cartToggle.setAttribute('aria-expanded', 'false');
+    }
+
+    function renderCart() {
+      const cart = getCart();
+      const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+      cartCount.textContent = formatCartCount(totalItems);
+
+      if (!cart.length) {
+        cartItems.innerHTML = '<p class="cart-empty">No books added yet. Pick a title from the curated list to build your free reading cart.</p>';
+        cartTotal.textContent = 'Free';
+        return;
+      }
+
+      cartItems.innerHTML = cart.map(item => `
+        <article class="cart-item">
+          <div>
+            <p class="cart-item-genre">${item.genre}</p>
+            <h4 class="cart-item-title">${item.title}</h4>
+          </div>
+          <div class="cart-item-actions">
+            <button class="qty-btn" data-action="decrease" data-title="${item.title}" aria-label="Decrease quantity">−</button>
+            <span class="qty-value">${item.quantity}</span>
+            <button class="qty-btn" data-action="increase" data-title="${item.title}" aria-label="Increase quantity">+</button>
+            <button class="remove-btn" data-action="remove" data-title="${item.title}" aria-label="Remove from cart">Remove</button>
+          </div>
+        </article>
+      `).join('');
+
+      const itemCountLabel = cart.length === 1 ? '1 book' : `${cart.length} books`;
+      cartTotal.textContent = `${itemCountLabel} · Free`;
+    }
+
+    function updateCart(title, action) {
+      const cart = getCart();
+      const item = cart.find(entry => entry.title === title);
+
+      if (!item) return;
+
+      if (action === 'increase') {
+        item.quantity += 1;
+      } else if (action === 'decrease') {
+        item.quantity -= 1;
+      }
+
+      if (item.quantity <= 0 || action === 'remove') {
+        const index = cart.findIndex(entry => entry.title === title);
+        cart.splice(index, 1);
+      }
+
+      saveCart(cart);
+      renderCart();
+    }
+
+    document.querySelectorAll('.book-card').forEach(card => {
+      const title = card.querySelector('.book-title')?.textContent?.trim() || 'Book pick';
+      const genre = card.querySelector('.book-genre')?.textContent?.trim() || 'Curated pick';
+      const action = document.createElement('button');
+      action.type = 'button';
+      action.className = 'add-cart-btn';
+      action.textContent = 'Add to cart';
+      action.addEventListener('click', (event) => {
+        event.stopPropagation();
+        const cart = getCart();
+        const existing = cart.find(item => item.title === title);
+        if (existing) {
+          existing.quantity += 1;
+        } else {
+          cart.push({ title, genre, quantity: 1 });
+        }
+        saveCart(cart);
+        renderCart();
+        openCart();
+      });
+      const footer = card.querySelector('.book-info');
+      if (footer) {
+        footer.appendChild(action);
+      }
+    });
+
+    cartToggle.addEventListener('click', () => {
+      const isOpen = cartDrawer.classList.contains('open');
+      isOpen ? closeCart() : openCart();
+    });
+    cartClose.addEventListener('click', closeCart);
+    cartBackdrop.addEventListener('click', closeCart);
+
+    cartItems.addEventListener('click', (event) => {
+      const button = event.target.closest('button[data-action]');
+      if (!button) return;
+      updateCart(button.dataset.title, button.dataset.action);
+    });
+
+    document.querySelector('.cart-checkout').addEventListener('click', async () => {
+      const auth = JSON.parse(localStorage.getItem('lexibooks-auth') || 'null');
+      if (!auth?.user) {
+        alert('Please sign in to complete your order.');
+        openAuth('signin');
+        return;
+      }
+
+      const cart = getCart();
+      if (cart.length === 0) {
+        alert('Your cart is empty. Add some books first!');
+        return;
+      }
+
+      const checkoutBtn = document.querySelector('.cart-checkout');
+      checkoutBtn.disabled = true;
+      checkoutBtn.textContent = 'Processing...';
+
+      try {
+        const response = await fetch('/api/checkout', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            name: auth.user.name,
+            email: auth.user.email,
+            order: cart,
+          }),
+        });
+
+        const data = await response.json();
+        alert(data.message || 'Order submitted!');
+
+        if (data.ok) {
+          // Clear cart after successful checkout
+          saveCart([]);
+          renderCart();
+          closeCart();
+        }
+      } catch (error) {
+        console.error('Checkout error:', error);
+        alert('Error submitting order. Please try again.');
+      } finally {
+        checkoutBtn.disabled = false;
+        checkoutBtn.textContent = 'Checkout demo';
+      }
+    });
+
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape') {
+        closeCart();
+        closeAuth();
+      }
+    });
+
+    renderCart();
+
+    // Auth UI
+    const authBackdrop = document.getElementById('auth-backdrop');
+    const authModal = document.getElementById('auth-modal');
+    const authClose = document.getElementById('auth-close');
+    const showSignIn = document.getElementById('show-signin');
+    const showRegister = document.getElementById('show-register');
+    const authTabs = document.querySelectorAll('.auth-tab');
+    const authForms = document.querySelectorAll('.auth-form');
+    const signinForm = document.getElementById('signin-form');
+    const registerForm = document.getElementById('register-form');
+    const signinMessage = document.getElementById('signin-message');
+    const registerMessage = document.getElementById('register-message');
+    const authTitle = document.getElementById('auth-title');
+    const authCopy = document.getElementById('auth-copy');
+
+    function openAuth(mode = 'signin') {
+      authModal.classList.add('open');
+      authBackdrop.classList.add('open');
+      authModal.setAttribute('aria-hidden', 'false');
+      setAuthMode(mode);
+    }
+
+    function closeAuth() {
+      authModal.classList.remove('open');
+      authBackdrop.classList.remove('open');
+      authModal.setAttribute('aria-hidden', 'true');
+    }
+
+    function setAuthMode(mode) {
+      authTabs.forEach(tab => tab.classList.toggle('active', tab.dataset.authTab === mode));
+      authForms.forEach(form => form.classList.toggle('active', form.id === `${mode}-form`));
+      authTitle.textContent = mode === 'register' ? 'Create your Lexibooks account' : 'Sign in to Lexibooks';
+      authCopy.textContent = mode === 'register'
+        ? 'Register with your email to start building your reading cart and account profile.'
+        : 'Use your email to access your reading picks and saved account details.';
+    }
+
+    function setSignedInState(user) {
+      showSignIn.textContent = `Hi, ${user.name.split(' ')[0]}`;
+      showSignIn.disabled = true;
+      showRegister.textContent = 'Sign Out';
+      showRegister.classList.add('ghost');
+      showRegister.onclick = () => {
+        localStorage.removeItem('lexibooks-auth');
+        setSignedOutState();
+      };
+    }
+
+    function setSignedOutState() {
+      showSignIn.textContent = 'Sign In';
+      showSignIn.disabled = false;
+      showRegister.textContent = 'Register';
+      showRegister.classList.remove('ghost');
+      showRegister.onclick = null;
+      showSignIn.onclick = () => openAuth('signin');
+      showRegister.onclick = () => openAuth('register');
+    }
+
+    showSignIn.addEventListener('click', () => openAuth('signin'));
+    showRegister.addEventListener('click', () => openAuth('register'));
+    authClose.addEventListener('click', closeAuth);
+    authBackdrop.addEventListener('click', closeAuth);
+    authTabs.forEach(tab => {
+      tab.addEventListener('click', () => setAuthMode(tab.dataset.authTab));
+    });
+
+    signinForm.addEventListener('submit', async (event) => {
+      event.preventDefault();
+      signinMessage.textContent = 'Signing in...';
+      const response = await fetch('/api/login', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          email: document.getElementById('signin-email').value,
+          password: document.getElementById('signin-password').value,
+        }),
+      });
+      const data = await response.json();
+      signinMessage.textContent = data.message || 'Unable to sign in.';
+      if (data.ok) {
+        localStorage.setItem('lexibooks-auth', JSON.stringify({ token: data.token, user: data.user }));
+        setSignedInState(data.user);
+        closeAuth();
+      }
+    });
+
+    registerForm.addEventListener('submit', async (event) => {
+      event.preventDefault();
+      registerMessage.textContent = 'Creating your account...';
+      const response = await fetch('/api/register', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name: document.getElementById('register-name').value,
+          email: document.getElementById('register-email').value,
+          password: document.getElementById('register-password').value,
+        }),
+      });
+      const data = await response.json();
+      registerMessage.textContent = data.message || 'Unable to create your account.';
+      if (data.ok) {
+        localStorage.setItem('lexibooks-auth', JSON.stringify({ token: data.token, user: data.user }));
+        setSignedInState(data.user);
+        closeAuth();
+      }
+    });
+
+    const savedAuth = JSON.parse(localStorage.getItem('lexibooks-auth') || 'null');
+    if (savedAuth?.user) {
+      setSignedInState(savedAuth.user);
+    } else {
+      setSignedOutState();
+    }
+  </script>
+
+</body>
+
+</html>
