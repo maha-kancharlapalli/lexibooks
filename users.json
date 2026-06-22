@@ -5,5 +5,12 @@
     "email": "mahaa.kancharla@gmail.com",
     "password": "$2a$10$vACBC/Y5Wk8TzKyHX43a4OVi0rea1Wdv88Y1BjB.bMeot.P1FnwSC",
     "createdAt": "2026-06-21T03:31:58.709Z"
+  },
+  {
+    "id": "1782168694237",
+    "name": "John Doe",
+    "email": "john@example.com",
+    "password": "$2a$10$e8lRe61fmdpcVdeq4.1r6.0XQAzSo5w3.5Okdc8Ez9TQ8mbVpvxNe",
+    "createdAt": "2026-06-22T22:51:34.237Z"
   }
 ]
