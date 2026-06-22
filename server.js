@@ -8,13 +8,24 @@ const nodemailer = require('nodemailer');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
+
 const USERS_FILE = path.join(__dirname, 'users.json');
-const JWT_SECRET = process.env.JWT_SECRET || 'lexibooks-demo-secret';
+
+const JWT_SECRET = process.env.JWT_SECRET;
+if (!JWT_SECRET) {
+  throw new Error("Missing JWT_SECRET in environment variables");
+}
+
+/* =========================
+   MIDDLEWARE
+========================= */
 
 app.use(cors({
   origin: [
     'https://lexibooks.store',
-    'https://www.lexibooks.store'
+    'https://www.lexibooks.store',
+    'http://localhost:3000',
+    'http://127.0.0.1:5500'
   ],
   credentials: true
 }));
@@ -22,10 +33,14 @@ app.use(cors({
 app.use(express.json());
 app.use(express.static(__dirname));
 
+/* =========================
+   HELPERS
+========================= */
+
 function readUsers() {
   try {
     return JSON.parse(fs.readFileSync(USERS_FILE, 'utf8'));
-  } catch (error) {
+  } catch {
     return [];
   }
 }
@@ -34,123 +49,192 @@ function writeUsers(users) {
   fs.writeFileSync(USERS_FILE, JSON.stringify(users, null, 2));
 }
 
+/* =========================
+   AUTH MIDDLEWARE
+========================= */
+
+function auth(req, res, next) {
+  const token = req.headers.authorization?.split(" ")[1];
+
+  if (!token) {
+    return res.status(401).json({ ok: false, message: "No token provided" });
+  }
+
+  try {
+    const decoded = jwt.verify(token, JWT_SECRET);
+    req.user = decoded;
+    next();
+  } catch (err) {
+    return res.status(403).json({ ok: false, message: "Invalid token" });
+  }
+}
+
+/* =========================
+   ROUTES
+========================= */
+
+// Health check
 app.get('/api/health', (_req, res) => {
-  res.json({ ok: true, message: 'Lexibooks auth API is running' });
+  res.json({ ok: true, message: 'Lexibooks API running' });
 });
+
+/* =========================
+   REGISTER
+========================= */
 
 app.post('/api/register', async (req, res) => {
   const { name, email, password } = req.body || {};
 
   if (!name || !email || !password) {
-    return res.status(400).json({ ok: false, message: 'Name, email and password are required.' });
+    return res.status(400).json({ ok: false, message: 'All fields required' });
   }
 
   const users = readUsers();
-  if (users.some((user) => user.email.toLowerCase() === email.toLowerCase())) {
-    return res.status(409).json({ ok: false, message: 'An account with that email already exists.' });
+
+  if (users.some(u => u.email === email.toLowerCase())) {
+    return res.status(409).json({ ok: false, message: 'Email already exists' });
   }
 
   const hashedPassword = await bcrypt.hash(password, 10);
+
   const user = {
     id: Date.now().toString(),
-    name: name.trim(),
-    email: email.trim().toLowerCase(),
+    name: name.trim().slice(0, 50),
+    email: email.trim().toLowerCase().slice(0, 100),
     password: hashedPassword,
-    createdAt: new Date().toISOString(),
+    createdAt: new Date().toISOString()
   };
 
   users.push(user);
   writeUsers(users);
 
-  const token = jwt.sign({ id: user.id, email: user.email }, JWT_SECRET, { expiresIn: '7d' });
+  const token = jwt.sign(
+    { id: user.id, email: user.email },
+    JWT_SECRET,
+    { expiresIn: '7d' }
+  );
 
-  return res.status(201).json({
+  res.status(201).json({
     ok: true,
-    message: 'Account created successfully.',
+    message: 'Account created',
     token,
-    user: { id: user.id, name: user.name, email: user.email },
+    user: { id: user.id, name: user.name, email: user.email }
   });
 });
+
+/* =========================
+   LOGIN
+========================= */
 
 app.post('/api/login', async (req, res) => {
   const { email, password } = req.body || {};
 
   if (!email || !password) {
-    return res.status(400).json({ ok: false, message: 'Email and password are required.' });
+    return res.status(400).json({ ok: false, message: 'Missing fields' });
   }
 
   const users = readUsers();
-  const user = users.find((entry) => entry.email.toLowerCase() === email.trim().toLowerCase());
+
+  const user = users.find(
+    u => u.email === email.trim().toLowerCase()
+  );
 
   if (!user) {
-    return res.status(401).json({ ok: false, message: 'Invalid email or password.' });
+    return res.status(401).json({ ok: false, message: 'Invalid credentials' });
   }
 
-  const passwordMatch = await bcrypt.compare(password, user.password);
-  if (!passwordMatch) {
-    return res.status(401).json({ ok: false, message: 'Invalid email or password.' });
+  const match = await bcrypt.compare(password, user.password);
+
+  if (!match) {
+    return res.status(401).json({ ok: false, message: 'Invalid credentials' });
   }
 
-  const token = jwt.sign({ id: user.id, email: user.email }, JWT_SECRET, { expiresIn: '7d' });
+  const token = jwt.sign(
+    { id: user.id, email: user.email },
+    JWT_SECRET,
+    { expiresIn: '7d' }
+  );
 
-  return res.json({
+  res.json({
     ok: true,
-    message: 'Signed in successfully.',
+    message: 'Login successful',
     token,
-    user: { id: user.id, name: user.name, email: user.email },
+    user: { id: user.id, name: user.name, email: user.email }
   });
 });
+
+/* =========================
+   CHECKOUT (EMAIL ORDER)
+========================= */
 
 app.post('/api/checkout', async (req, res) => {
   const { name, email, order } = req.body || {};
 
-  if (!name || !email || !order || !Array.isArray(order) || order.length === 0) {
-    return res.status(400).json({ ok: false, message: 'Name, email, and order items are required.' });
+  if (!name || !email || !Array.isArray(order) || order.length === 0) {
+    return res.status(400).json({
+      ok: false,
+      message: 'Invalid order data'
+    });
   }
 
-  // Create email transporter (using Gmail)
   const transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
       user: process.env.EMAIL_USER,
-      pass: process.env.EMAIL_PASSWORD,
-    },
+      pass: process.env.EMAIL_PASSWORD
+    }
   });
 
-  // Format order details
-  const orderDetails = order.map(item => `• ${item.title} (${item.quantity}x)`).join('\n');
+  const orderText = order
+    .map(i => `• ${i.title} (${i.quantity}x)`)
+    .join('\n');
 
-  // Email content
   const mailOptions = {
     from: process.env.EMAIL_USER,
-    to: 'seoah.baek@gmail.com',
-    subject: `New Lexibooks Order from ${name}`,
+    to: process.env.EMAIL_USER, // send to yourself
+    subject: `New Order from ${name}`,
     html: `
-      <h2>New Lexibooks Order</h2>
-      <p><strong>Customer Name:</strong> ${name}</p>
-      <p><strong>Customer Email:</strong> ${email}</p>
-      <h3>Order Details:</h3>
-      <pre>${orderDetails}</pre>
-      <p>Order placed on: ${new Date().toISOString()}</p>
+      <h2>New Order</h2>
+      <p><strong>Name:</strong> ${name}</p>
+      <p><strong>Email:</strong> ${email}</p>
+      <pre>${orderText}</pre>
+      <p>${new Date().toISOString()}</p>
     `,
-    text: `New Lexibooks Order\n\nCustomer Name: ${name}\nCustomer Email: ${email}\n\nOrder Details:\n${orderDetails}\n\nOrder placed on: ${new Date().toISOString()}`,
+    text: `Name: ${name}\nEmail: ${email}\n\n${orderText}`
   };
 
   try {
     await transporter.sendMail(mailOptions);
-    return res.json({
+
+    res.json({
       ok: true,
-      message: 'Order submitted successfully! A confirmation email has been sent.',
+      message: 'Order placed successfully'
     });
-  } catch (error) {
-    console.error('Email error:', error);
-    return res.status(500).json({
+  } catch (err) {
+    console.error(err);
+
+    res.status(500).json({
       ok: false,
-      message: 'Order submitted, but there was an issue sending the confirmation email.',
+      message: 'Order saved but email failed'
     });
   }
 });
 
+/* =========================
+   PROTECTED ROUTE EXAMPLE
+========================= */
+
+app.get('/api/profile', auth, (req, res) => {
+  res.json({
+    ok: true,
+    user: req.user
+  });
+});
+
+/* =========================
+   START SERVER
+========================= */
+
 app.listen(PORT, () => {
-  console.log(`Lexibooks auth server running on http://localhost:${PORT}`);
+  console.log(`Server running on http://localhost:${PORT}`);
 });
