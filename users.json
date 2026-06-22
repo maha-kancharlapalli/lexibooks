@@ -12,5 +12,12 @@
     "email": "john@example.com",
     "password": "$2a$10$e8lRe61fmdpcVdeq4.1r6.0XQAzSo5w3.5Okdc8Ez9TQ8mbVpvxNe",
     "createdAt": "2026-06-22T22:51:34.237Z"
+  },
+  {
+    "id": "1782169182662",
+    "name": "test",
+    "email": "mahalakshmi.kancharlapalli@mcvts.org",
+    "password": "$2a$10$979sPCFV8aIN26vs28IQweJjv/7o5DKw3WQJVb3jgSYqsB3SpKXyq",
+    "createdAt": "2026-06-22T22:59:42.663Z"
   }
 ]
