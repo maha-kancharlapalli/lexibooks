@@ -10,6 +10,7 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 const USERS_FILE = path.join(__dirname, 'users.json');
+const BOOKS_FILE = path.join(__dirname, 'books.json');
 
 const JWT_SECRET = process.env.JWT_SECRET;
 if (!JWT_SECRET) {
@@ -49,6 +50,14 @@ function writeUsers(users) {
   fs.writeFileSync(USERS_FILE, JSON.stringify(users, null, 2));
 }
 
+function readBooks() {
+  try {
+    return JSON.parse(fs.readFileSync(BOOKS_FILE, 'utf8'));
+  } catch {
+    return [];
+  }
+}
+
 /* =========================
    AUTH MIDDLEWARE
 ========================= */
@@ -76,6 +85,14 @@ function auth(req, res, next) {
 // Health check
 app.get('/api/health', (_req, res) => {
   res.json({ ok: true, message: 'Lexibooks API running' });
+});
+
+/* =========================
+   BOOKS
+========================= */
+
+app.get('/api/books', (_req, res) => {
+  res.json({ ok: true, books: readBooks() });
 });
 
 /* =========================

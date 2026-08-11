@@ -1,0 +1,74 @@
+[
+  {
+    "id": "alchemist",
+    "title": "The Alchemist",
+    "author": "Paulo Coelho",
+    "genre": "Adventure Fiction",
+    "quote": "The secret of life, though, is to fall seven times and to get up eight times.",
+    "cover": "https://static.wixstatic.com/media/d771aa_55a1a2e934734eb69cbcba2a9da0ae69~mv2.jpg/v1/crop/x_0,y_93,w_661,h_814/fill/w_315,h_388,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/alchemist.jpg"
+  },
+  {
+    "id": "the-giver",
+    "title": "The Giver",
+    "author": "Lois Lowry",
+    "genre": "Dystopian",
+    "quote": "We gained control of many things. But we had to let go of others.",
+    "cover": "https://static.wixstatic.com/media/d771aa_e30969cdc1824567a2003315f1dd878c~mv2.jpg/v1/crop/x_0,y_93,w_661,h_814/fill/w_315,h_388,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/thegiver.jpg"
+  },
+  {
+    "id": "seven-husbands-evelyn-hugo",
+    "title": "The Seven Husbands of Evelyn Hugo",
+    "author": "Taylor Jenkins Reid",
+    "genre": "Romance",
+    "quote": "Never let anyone make you feel ordinary.",
+    "cover": "https://static.wixstatic.com/media/d771aa_e9966cec13a840d7a534e5535e8d506d~mv2.jpg/v1/crop/x_0,y_104,w_643,h_792/fill/w_315,h_388,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/sevenhus.jpg"
+  },
+  {
+    "id": "edward-tulane",
+    "title": "The Miraculous Journey of Edward Tulane",
+    "author": "Kate DiCamillo",
+    "genre": "Children's Literature",
+    "quote": "If you have no intention of loving or being loved, the whole journey is pointless.",
+    "cover": "https://static.wixstatic.com/media/d771aa_df91bb4fc20347adb1a65037f1657d75~mv2.jpg/v1/crop/x_0,y_86,w_673,h_829/fill/w_315,h_388,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/edwardtulane.jpg"
+  },
+  {
+    "id": "never-let-me-go",
+    "title": "Never Let Me Go",
+    "author": "Kazuo Ishiguro",
+    "genre": "Science / Speculative Fiction",
+    "quote": "Memories, even your most precious ones, fade surprisingly quickly.",
+    "cover": "https://static.wixstatic.com/media/d771aa_bf7e2a6a6a154f9cbf7db16981110862~mv2.jpg/v1/crop/x_0,y_73,w_694,h_855/fill/w_315,h_388,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/ishiguro.jpg"
+  },
+  {
+    "id": "pachinko",
+    "title": "Pachinko",
+    "author": "Min Jin Lee",
+    "genre": "Historical Fiction",
+    "quote": "Living every day in the presence of those who refuse to acknowledge your humanity takes great courage.",
+    "cover": "https://static.wixstatic.com/media/d771aa_9b4961cbfe5d4bf2b64a88329f55d0e8~mv2.webp/v1/fill/w_315,h_388,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/pachinko.webp"
+  },
+  {
+    "id": "art-of-thinking-clearly",
+    "title": "The Art of Thinking Clearly",
+    "author": "Rolf Dobelli",
+    "genre": "Self-Help",
+    "quote": "We prefer a simple lie to a complex truth.",
+    "cover": "https://static.wixstatic.com/media/d771aa_9c67c8092649492dbf391228b41d34ca~mv2.jpg/v1/crop/x_0,y_58,w_418,h_515/fill/w_315,h_388,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/dobelli.jpg"
+  },
+  {
+    "id": "one-of-us-is-lying",
+    "title": "One Of Us Is Lying",
+    "author": "Karen M. McManus",
+    "genre": "Mystery",
+    "quote": "Things that break—be they bones, hearts, or promises—can be put back together again.",
+    "cover": "https://static.wixstatic.com/media/d771aa_5cde328cc9bb438eacba251d5e7f0276~mv2.jpg/v1/crop/x_0,y_57,w_419,h_516/fill/w_315,h_388,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/mcmanus.jpg"
+  },
+  {
+    "id": "the-hate-u-give",
+    "title": "The Hate U Give",
+    "author": "Angie Thomas",
+    "genre": "Contemporary",
+    "quote": "What's the point of having a voice if you're going to be silent in those moments you shouldn't be?",
+    "cover": "https://static.wixstatic.com/media/d771aa_6fa20899981446c7b7b4ed1118c5b33d~mv2.jpg/v1/fill/w_315,h_388,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/angiethomas.jpg"
+  }
+]
