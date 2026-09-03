@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" role="img"
+  aria-label="Lexibooks">
+  <title>Lexibooks</title>
+  <!-- Sun disc: the one warm note, and the only place yellow appears. -->
+  <circle cx="32" cy="32" r="30" fill="#FFC93C" />
+  <!-- A bookmark — the object whose whole job is bringing you back to a book. -->
+  <path d="M20 14 H44 A2 2 0 0 1 46 16 V50 L32 40 L18 50 V16 A2 2 0 0 1 20 14 Z" fill="#0D5476" />
+</svg>

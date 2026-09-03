@@ -1,0 +1,466 @@
+/* ═══════════════════════════════════════════════
+   LEXIBOOKS — questionnaire.css
+   Loads after style.css and reuses its tokens.
+═══════════════════════════════════════════════ */
+
+body.q-body {
+  background: var(--cream);
+  min-height: 100vh;
+}
+
+/* ── SLIM NAV ── */
+.q-nav {
+  padding: 1.1rem 3rem;
+}
+
+.q-nav .nav-right {
+  gap: 1.4rem;
+}
+
+.q-nav-link {
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--navy);
+  transition: color 0.2s;
+}
+
+.q-nav-link:hover {
+  color: var(--sky-dark);
+}
+
+/* ── PROGRESS ── */
+.q-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: rgba(13, 84, 118, 0.08);
+  z-index: 101;
+}
+
+.q-progress-bar {
+  height: 100%;
+  width: 0%;
+  background: var(--sky-dark);
+  transition: width 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* ── STAGE ── */
+.q-main {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8rem 1.5rem 5rem;
+  position: relative;
+}
+
+.q-screen {
+  display: none;
+  width: 100%;
+  max-width: 760px;
+  animation: qFadeIn 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.q-screen.active {
+  display: block;
+}
+
+@keyframes qFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ── SHARED TYPE ── */
+.q-eyebrow {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--sky-dark);
+  margin-bottom: 1.1rem;
+}
+
+.q-title {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 5vw, 3.4rem);
+  line-height: 1.05;
+  letter-spacing: 0.02em;
+  color: var(--navy);
+  margin-bottom: 1.1rem;
+}
+
+.q-question {
+  font-family: var(--font-body);
+  font-size: clamp(1.5rem, 3.4vw, 2.3rem);
+  font-weight: 700;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+  color: var(--navy);
+  margin-bottom: 0.6rem;
+}
+
+.q-help {
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.7;
+  color: rgba(10, 31, 46, 0.6);
+  max-width: 540px;
+  margin-bottom: 2.2rem;
+}
+
+/* ── INTRO ── */
+.q-intro-facts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2.6rem;
+  margin: 2.4rem 0 2.8rem;
+  padding-top: 2.2rem;
+  border-top: 2px solid var(--pale-blue);
+}
+
+.q-fact-num {
+  font-family: var(--font-display);
+  font-size: 2.2rem;
+  color: var(--sky-dark);
+  line-height: 1;
+  margin-bottom: 0.4rem;
+}
+
+.q-fact-label {
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(10, 31, 46, 0.55);
+}
+
+/* ── OPTIONS ── */
+.q-options {
+  display: grid;
+  gap: 0.75rem;
+  margin-bottom: 2rem;
+}
+
+.q-option {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  width: 100%;
+  padding: 1.15rem 1.4rem;
+  background: #fff;
+  border: 2px solid var(--pale-blue);
+  border-radius: 4px;
+  font-family: var(--font-body);
+  font-size: 1.02rem;
+  font-weight: 500;
+  line-height: 1.4;
+  text-align: left;
+  color: var(--ink);
+  cursor: pointer;
+  transition: border-color 0.18s, background 0.18s, transform 0.18s, box-shadow 0.18s;
+}
+
+.q-option:hover {
+  border-color: var(--sky);
+  transform: translateX(4px);
+  box-shadow: 0 8px 22px rgba(13, 84, 118, 0.07);
+}
+
+.q-option.selected {
+  border-color: var(--navy);
+  background: var(--pale-blue);
+}
+
+.q-option-key {
+  flex-shrink: 0;
+  width: 26px;
+  height: 26px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 3px;
+  background: var(--pale-blue);
+  color: var(--navy);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  transition: background 0.18s, color 0.18s;
+}
+
+.q-option.selected .q-option-key,
+.q-option:hover .q-option-key {
+  background: var(--navy);
+  color: var(--cream);
+}
+
+/* ── BUTTONS ── */
+.q-actions {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  flex-wrap: wrap;
+}
+
+.q-btn {
+  display: inline-block;
+  padding: 1rem 2.6rem;
+  background: var(--sky);
+  border: 2px solid var(--sky);
+  border-radius: 2px;
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--navy-deep);
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+}
+
+.q-btn:hover:not(:disabled) {
+  background: var(--navy);
+  border-color: var(--navy);
+  color: var(--cream);
+  transform: translateY(-3px);
+  box-shadow: 0 12px 30px rgba(13, 84, 118, 0.18);
+}
+
+.q-btn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.q-btn-ghost {
+  background: transparent;
+  border-color: transparent;
+  color: rgba(10, 31, 46, 0.5);
+  padding: 1rem 0;
+  letter-spacing: 0.14em;
+}
+
+.q-btn-ghost:hover:not(:disabled) {
+  background: transparent;
+  border-color: transparent;
+  color: var(--navy);
+  transform: none;
+  box-shadow: none;
+}
+
+.q-skip {
+  font-size: 0.76rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: rgba(10, 31, 46, 0.42);
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: var(--font-body);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: color 0.2s;
+}
+
+.q-skip:hover {
+  color: var(--navy);
+}
+
+/* ── STEP COUNTER ── */
+.q-step-meta {
+  display: flex;
+  align-items: baseline;
+  gap: 0.6rem;
+  margin-bottom: 1.4rem;
+}
+
+.q-step-num {
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  letter-spacing: 0.1em;
+  color: var(--sky-dark);
+}
+
+.q-step-total {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(10, 31, 46, 0.4);
+}
+
+/* ── DETAILS FORM ── */
+.q-form {
+  display: grid;
+  gap: 1.2rem;
+  margin-bottom: 2rem;
+}
+
+.q-field label {
+  display: block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--navy);
+  margin-bottom: 0.5rem;
+}
+
+.q-optional {
+  color: rgba(10, 31, 46, 0.38);
+  font-weight: 500;
+  letter-spacing: 0.08em;
+}
+
+.q-field input,
+.q-field select,
+.q-field textarea {
+  width: 100%;
+  padding: 0.95rem 1.1rem;
+  background: #fff;
+  border: 2px solid var(--pale-blue);
+  border-radius: 4px;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  color: var(--ink);
+  transition: border-color 0.18s;
+}
+
+.q-field input:focus,
+.q-field select:focus,
+.q-field textarea:focus {
+  outline: none;
+  border-color: var(--sky-dark);
+}
+
+.q-field textarea {
+  resize: vertical;
+  min-height: 90px;
+}
+
+.q-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.2rem;
+}
+
+.q-message {
+  min-height: 1.4rem;
+  margin-top: 1rem;
+  font-size: 0.88rem;
+  font-weight: 500;
+  color: var(--navy);
+}
+
+.q-message.error {
+  color: #b3453a;
+}
+
+/* ── SUCCESS ── */
+.q-success {
+  text-align: center;
+}
+
+.q-success-mark {
+  font-family: var(--font-display);
+  font-size: 3.4rem;
+  color: var(--sky-dark);
+  margin-bottom: 1rem;
+}
+
+.q-success .q-help {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.q-success .q-actions {
+  justify-content: center;
+}
+
+.q-recap {
+  display: grid;
+  gap: 0.55rem;
+  max-width: 520px;
+  margin: 0 auto 2.4rem;
+  padding: 1.6rem;
+  background: var(--pale-blue);
+  border-radius: 4px;
+  text-align: left;
+}
+
+.q-recap-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 1.4rem;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.q-recap-key {
+  font-weight: 700;
+  color: var(--navy);
+  flex-shrink: 0;
+}
+
+.q-recap-val {
+  color: rgba(10, 31, 46, 0.7);
+  text-align: right;
+}
+
+/* ── HINT ── */
+.q-hint {
+  margin-top: 2.4rem;
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  color: rgba(10, 31, 46, 0.35);
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 700px) {
+  .q-nav {
+    padding: 1rem 1.5rem;
+  }
+
+  .q-main {
+    padding: 7rem 1.25rem 4rem;
+  }
+
+  .q-row {
+    grid-template-columns: 1fr;
+  }
+
+  .q-option {
+    padding: 1rem 1.1rem;
+    font-size: 0.96rem;
+  }
+
+  .q-option-key {
+    display: none;
+  }
+
+  .q-hint {
+    display: none;
+  }
+
+  .q-intro-facts {
+    gap: 1.8rem;
+  }
+
+  .q-btn {
+    width: 100%;
+    text-align: center;
+  }
+
+  .q-actions {
+    gap: 0.5rem;
+  }
+}

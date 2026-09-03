@@ -1,0 +1,193 @@
+/* ═══════════════════════════════════════════════
+   LEXIBOOKS — team.css
+   Loads after style.css and reuses its tokens.
+═══════════════════════════════════════════════ */
+
+.team-page {
+  background: var(--cream);
+}
+
+/* ── HEADER ── */
+.team-hero {
+  padding: 11rem 4rem 4rem;
+  text-align: center;
+  background: var(--cream);
+}
+
+.team-eyebrow {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--sky-dark);
+  margin-bottom: 1.2rem;
+}
+
+.team-title {
+  font-family: var(--font-display);
+  font-size: clamp(2.6rem, 7vw, 5rem);
+  line-height: 1;
+  letter-spacing: 0.02em;
+  color: var(--navy);
+  margin-bottom: 1.4rem;
+}
+
+.team-intro {
+  max-width: 560px;
+  margin: 0 auto;
+  font-size: 1.05rem;
+  font-weight: 400;
+  line-height: 1.75;
+  color: rgba(10, 31, 46, 0.6);
+  letter-spacing: 0.01em;
+}
+
+.team-rule {
+  width: 60px;
+  height: 3px;
+  background: var(--sky);
+  margin: 2.6rem auto 0;
+}
+
+/* ── GRID ──
+   Flex rather than grid so a row that isn't full — five members
+   across three columns — stays centred instead of left-hanging. */
+.team-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 3rem 2.5rem;
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 4rem 4rem 7rem;
+}
+
+.team-card {
+  flex: 0 1 320px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ── PHOTO ── */
+.team-photo {
+  position: relative;
+  aspect-ratio: 4 / 5;
+  border-radius: 3px;
+  overflow: hidden;
+  background: var(--pale-blue);
+  margin-bottom: 1.4rem;
+}
+
+.team-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Empty slot: reads as intentional rather than broken. */
+.team-photo-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.9rem;
+  height: 100%;
+  border: 2px dashed rgba(13, 84, 118, 0.22);
+  border-radius: 3px;
+  background: linear-gradient(165deg, var(--pale-blue), #d6e8fa);
+  transition: border-color 0.25s, background 0.25s;
+}
+
+.team-card:hover .team-photo-empty {
+  border-color: var(--sky-dark);
+  background: linear-gradient(165deg, #dcecfc, #cbe3f9);
+}
+
+.team-photo-empty svg {
+  width: 46px;
+  height: 46px;
+  color: rgba(13, 84, 118, 0.35);
+}
+
+.team-photo-empty span {
+  font-size: 0.64rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(13, 84, 118, 0.45);
+}
+
+/* ── TEXT ── */
+.team-name {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  letter-spacing: 0.03em;
+  color: var(--navy);
+  line-height: 1.15;
+}
+
+.team-name.placeholder {
+  color: rgba(13, 84, 118, 0.3);
+}
+
+.team-role {
+  margin-top: 0.45rem;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.13em;
+  line-height: 1.55;
+  text-transform: uppercase;
+  color: var(--sky-dark);
+  max-width: 26ch;
+}
+
+.team-role.placeholder {
+  color: rgba(13, 84, 118, 0.28);
+}
+
+/* ── FOOTER NOTE ── */
+.team-note {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 0 4rem 6rem;
+  text-align: center;
+  font-size: 0.95rem;
+  line-height: 1.75;
+  color: rgba(10, 31, 46, 0.55);
+}
+
+.team-note a {
+  color: var(--navy);
+  font-weight: 600;
+  border-bottom: 2px solid var(--sky);
+  transition: border-color 0.2s;
+}
+
+.team-note a:hover {
+  border-color: var(--navy);
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 900px) {
+  .team-hero {
+    padding: 9rem 1.5rem 3rem;
+  }
+
+  .team-grid {
+    padding: 3rem 1.5rem 5rem;
+    gap: 2.5rem 2rem;
+  }
+
+  .team-note {
+    padding: 0 1.5rem 4rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .team-card {
+    flex: 0 1 100%;
+    max-width: 340px;
+  }
+}

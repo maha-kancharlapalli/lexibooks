@@ -4,11 +4,50 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" href="logo.svg" type="image/svg+xml" />
   <title>Home | Lexibooks</title>
   <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="flyer.css" />
+  <script src="supabase-config.js"></script>
 </head>
 
 <body>
+
+  <!-- ══ GRAND OPENING POP-UP ══ -->
+  <div class="flyer-modal-backdrop" id="flyer-backdrop" role="dialog" aria-modal="true"
+       aria-labelledby="flyer-modal-title" aria-hidden="true">
+    <div class="flyer-modal">
+      <button type="button" class="flyer-modal-close" id="flyer-close" aria-label="Close announcement">×</button>
+
+      <svg class="fm-mark" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <circle cx="32" cy="32" r="30" fill="#FFC93C" />
+        <path d="M20 14 H44 A2 2 0 0 1 46 16 V50 L32 40 L18 50 V16 A2 2 0 0 1 20 14 Z" fill="#0D5476" />
+      </svg>
+
+      <div class="fm-wordmark">LEXI<span class="b">BOOKS</span></div>
+      <p class="fm-tagline">A student-led bookstore</p>
+
+      <div class="fm-rule"></div>
+
+      <p class="fm-eyebrow">You're invited to our</p>
+      <h2 class="fm-headline" id="flyer-modal-title">Grand Opening</h2>
+      <p class="fm-sub">Gently used and new books, hand-picked for every kind of reader — including the ones who
+        haven't finished a book in years.</p>
+
+      <div class="fm-prices">
+        <div class="fm-price"><span class="amt">$3</span><span class="lbl">One book</span></div>
+        <div class="fm-price"><span class="amt">$6</span><span class="lbl">Bundle of three</span></div>
+      </div>
+
+      <div class="fm-address">
+        <p class="fm-label">Find us</p>
+        <p class="fm-line">930 Roosevelt, Room 226<br>Irvine, CA 92620</p>
+        <p class="fm-contact">contact@lexibookstore.online · @lexibookstore</p>
+      </div>
+
+      <a href="questionnaire.html" class="fm-cta">Get your book match</a>
+    </div>
+  </div>
 
   <!-- ══ NAV ══ -->
   <nav id="navbar">
@@ -18,8 +57,8 @@
       <li><a href="#about">Mission</a></li>
       <li><a href="#how">How It Works</a></li>
       <li><a href="#books">Books</a></li>
-      <li><a href="#questionnaire">Questionnaire</a></li>
-      <li><a href="#team">Team</a></li>
+      <li><a href="questionnaire.html">Questionnaire</a></li>
+      <li><a href="team.html">Team</a></li>
     </ul>
     <div class="nav-right">
       <button type="button" class="nav-auth-btn" id="show-signin">Sign In</button>
@@ -47,7 +86,7 @@
         <em>BOOKSTORE</em>
       </h1>
       <p class="hero-sub">Bringing people back to books — affectively and at no cost.</p>
-      <a href="#questionnaire" class="hero-cta">Get Your Book Match</a>
+      <a href="questionnaire.html" class="hero-cta">Get Your Book Match</a>
     </div>
     <div class="hero-scroll">
       <div class="hero-scroll-line"></div>
@@ -150,16 +189,22 @@
   <!-- ══ BOOKS ══ -->
   <section class="books" id="books">
     <div class="books-header">
-      <p class="section-label" style="color: var(--sky-dark)">Curated Picks</p>
+      <p class="section-label" style="color: var(--sky-dark)">Our Shelf</p>
       <h2 class="books-title">Books You Might Love</h2>
-      <div class="books-search">
-        <input type="search" id="books-search-input" class="books-search-input"
-          placeholder="Search by title, author or genre..." aria-label="Search books" />
-      </div>
+      <p class="books-count" id="books-count">Loading the shelf…</p>
     </div>
-    <p class="books-empty" id="books-empty" hidden>No books match your search.</p>
-    <div class="books-grid" id="books-grid">
-      <p class="books-loading" id="books-loading">Loading books...</p>
+
+    <div class="books-controls">
+      <input type="search" id="books-search" class="books-search"
+             placeholder="Search by title or author…" aria-label="Search books" />
+      <div class="books-filters" id="books-filters"></div>
+    </div>
+
+    <div class="books-grid" id="books-grid"></div>
+
+    <p class="books-empty" id="books-empty" hidden>Nothing on the shelf matches that. Try another filter.</p>
+    <div class="books-more-wrap">
+      <button type="button" class="books-more" id="books-more" hidden>Show more</button>
     </div>
   </section>
 
@@ -169,42 +214,7 @@
     <p class="cta-sub">Start with one page at a time.</p>
     <div class="cta-big reveal">QUESTIONNAIRE</div>
     <div class="cta-big-sub reveal">APP</div>
-    <a href="https://forms.gle/BV8FzNp4rQRsCHTDA" target="_blank" rel="noopener" class="cta-badge">Take the Questionnaire</a>
-  </section>
-
-  <!-- ══ TEAM ══ -->
-  <section class="team" id="team">
-    <div class="team-header">
-      <p class="section-label" style="color: var(--sky-dark)">The People Behind Lexi</p>
-      <h2 class="team-title">Meet The Team</h2>
-    </div>
-    <div class="team-grid">
-
-      <div class="team-card reveal">
-        <img class="team-photo" src="images/team/victoria.jpeg" alt="Victoria" loading="lazy" />
-        <div class="team-name">Victoria</div>
-        <div class="team-role">Founder &amp; Vision Lead</div>
-      </div>
-
-      <div class="team-card reveal" style="transition-delay: 0.1s">
-        <img class="team-photo" src="images/team/maha.jpeg" alt="Maha" loading="lazy" />
-        <div class="team-name">Maha</div>
-        <div class="team-role">Chief Technical Officer</div>
-      </div>
-
-      <div class="team-card reveal" style="transition-delay: 0.2s">
-        <img class="team-photo" src="images/team/jasmine.jpeg" alt="Jasmine" loading="lazy" />
-        <div class="team-name">Jasmine</div>
-        <div class="team-role">Community Engagement &amp; Social Media Director</div>
-      </div>
-
-      <div class="team-card reveal" style="transition-delay: 0.3s">
-        <img class="team-photo" src="images/team/trisha.jpeg" alt="Trisha" loading="lazy" />
-        <div class="team-name">Trisha</div>
-        <div class="team-role">Marketing &amp; Outreach Director</div>
-      </div>
-
-    </div>
+    <a href="questionnaire.html" class="cta-badge">Take the Questionnaire</a>
   </section>
 
   <!-- ══ DONATE ══ -->
@@ -216,7 +226,7 @@
       Your donation fuels the next generation of readers.
     </p>
     <div class="donate-contact reveal">
-      <p>Email: <a href="mailto:contact@lexibooks.store">contact@lexibooks.store</a></p>
+      <p>Email: <a href="mailto:contact@lexibookstore.online">contact@lexibookstore.online</a></p>
       <p>Instagram: <a href="https://www.instagram.com/lexibookstore/" target="_blank">@lexibookstore</a></p>
     </div>
   </section>
@@ -290,7 +300,8 @@
   </aside>
 
   <script>
-    const API_BASE = "https://lexibooks.onrender.com";
+    const IS_LOCAL = ['localhost', '127.0.0.1', ''].includes(location.hostname);
+    const API_BASE = IS_LOCAL ? "http://localhost:3000" : "https://lexibooks.onrender.com";
     const CART_KEY = 'lexibooks-cart';
 
     // Sticky nav
@@ -401,14 +412,132 @@
       renderCart();
     }
 
-    // Books catalog (backend-driven)
-    const booksGrid = document.getElementById('books-grid');
-    const booksLoading = document.getElementById('books-loading');
-    const booksEmpty = document.getElementById('books-empty');
-    const booksSearchInput = document.getElementById('books-search-input');
-    let allBooks = [];
+    /* ══ SHELF ══════════════════════════════════════════════
+       The grid is built from the `books` table rather than being
+       hard-coded, so adding a donated book in Supabase puts it on
+       the site with no code change. */
+    const PAGE_SIZE = 24;
+    const gridEl = document.getElementById('books-grid');
+    const countEl = document.getElementById('books-count');
+    const filtersEl = document.getElementById('books-filters');
+    const searchEl = document.getElementById('books-search');
+    const emptyEl = document.getElementById('books-empty');
+    const moreBtn = document.getElementById('books-more');
 
-    function addToCart(title, genre) {
+    let allBooks = [];
+    let activeGenre = 'All';
+    let searchTerm = '';
+    let shown = PAGE_SIZE;
+
+    const esc = (s) => String(s ?? '').replace(/[&<>"']/g,
+      c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+
+    function matching() {
+      const term = searchTerm.trim().toLowerCase();
+      return allBooks.filter(b => {
+        if (activeGenre !== 'All' && !(b.genre || []).includes(activeGenre)) return false;
+        if (!term) return true;
+        return `${b.title} ${b.author}`.toLowerCase().includes(term);
+      });
+    }
+
+    function cardHtml(b) {
+      const cover = b.cover_url
+        ? `<img class="book-cover" src="${esc(b.cover_url)}" alt="${esc(b.title)}" loading="lazy" />`
+        : `<div class="book-cover book-cover-blank"><span>${esc(b.title)}</span></div>`;
+      const label = (b.genre && b.genre.length) ? b.genre[0] : 'Curated pick';
+      const stock = b.available > 0
+        ? `${b.available} on the shelf`
+        : 'All copies out';
+      return `
+        <div class="book-card">
+          ${cover}
+          <div class="book-info">
+            <div class="book-genre">${esc(label)}</div>
+            <div class="book-title">${esc(b.title)}</div>
+            <div class="book-author">${esc(b.author)}</div>
+            ${b.quote ? `<div class="book-quote">${esc(b.quote)}</div>` : ''}
+            <div class="book-stock ${b.available > 0 ? '' : 'out'}">${stock}</div>
+            <button type="button" class="add-cart-btn" data-title="${esc(b.title)}"
+                    data-genre="${esc(label)}" ${b.available > 0 ? '' : 'disabled'}>
+              ${b.available > 0 ? 'Add to cart' : 'Unavailable'}
+            </button>
+          </div>
+        </div>`;
+    }
+
+    function renderBooks() {
+      const list = matching();
+      gridEl.innerHTML = list.slice(0, shown).map(cardHtml).join('');
+      emptyEl.hidden = list.length > 0;
+      moreBtn.hidden = list.length <= shown;
+      moreBtn.textContent = `Show more (${list.length - shown} left)`;
+
+      const copies = list.reduce((sum, b) => sum + b.available, 0);
+      // The count is what's catalogued, not what's on the physical shelf —
+      // donations arrive faster than they get logged, so say so.
+      countEl.textContent = list.length === allBooks.length
+        ? `${allBooks.length} titles catalogued · ${copies} copies · more added every week`
+        : `${list.length} of ${allBooks.length} titles`;
+    }
+
+    function buildFilters() {
+      const counts = new Map();
+      allBooks.forEach(b => (b.genre || []).forEach(g => counts.set(g, (counts.get(g) || 0) + 1)));
+      const genres = [...counts.entries()].sort((a, b) => b[1] - a[1]).slice(0, 10);
+      filtersEl.innerHTML = ['All', ...genres.map(g => g[0])].map(g => `
+        <button type="button" class="books-filter${g === 'All' ? ' active' : ''}" data-genre="${esc(g)}">
+          ${esc(g)}${g === 'All' ? '' : ` <span>${counts.get(g)}</span>`}
+        </button>`).join('');
+    }
+
+    async function loadBooks() {
+      if (!window.lexiDb?.configured) {
+        countEl.textContent = 'Shelf not connected — fill in supabase-config.js.';
+        return;
+      }
+      try {
+        const rows = await window.lexiDb.select('books', {
+          select: '*,copies(status)',
+          order: 'title.asc'
+        });
+        allBooks = rows.map(b => ({
+          ...b,
+          available: (b.copies || []).filter(c => c.status === 'available').length
+        }));
+        buildFilters();
+        renderBooks();
+      } catch (error) {
+        console.error('Could not load books:', error);
+        countEl.textContent = 'Could not load the shelf. Check the console.';
+      }
+    }
+
+    filtersEl.addEventListener('click', (event) => {
+      const button = event.target.closest('[data-genre]');
+      if (!button) return;
+      activeGenre = button.dataset.genre;
+      shown = PAGE_SIZE;
+      filtersEl.querySelectorAll('.books-filter').forEach(b => b.classList.toggle('active', b === button));
+      renderBooks();
+    });
+
+    searchEl.addEventListener('input', () => {
+      searchTerm = searchEl.value;
+      shown = PAGE_SIZE;
+      renderBooks();
+    });
+
+    moreBtn.addEventListener('click', () => {
+      shown += PAGE_SIZE;
+      renderBooks();
+    });
+
+    // Delegated so it keeps working as the grid re-renders.
+    gridEl.addEventListener('click', (event) => {
+      const button = event.target.closest('.add-cart-btn');
+      if (!button || button.disabled) return;
+      const { title, genre } = button.dataset;
       const cart = getCart();
       const existing = cart.find(item => item.title === title);
       if (existing) {
@@ -419,57 +548,9 @@
       saveCart(cart);
       renderCart();
       openCart();
-    }
-
-    function renderBooks(books) {
-      booksEmpty.hidden = books.length > 0;
-      booksGrid.innerHTML = books.map(book => {
-        const displayTitle = `${book.title} by ${book.author}`;
-        return `
-          <div class="book-card reveal" data-title="${displayTitle}" data-genre="${book.genre}">
-            <img class="book-cover" src="${book.cover}" alt="${book.title}" loading="lazy" />
-            <div class="book-info">
-              <div class="book-genre">${book.genre}</div>
-              <div class="book-title">${displayTitle}</div>
-              <div class="book-quote">"${book.quote}"</div>
-              <button type="button" class="add-cart-btn">Add to cart</button>
-            </div>
-          </div>
-        `;
-      }).join('');
-
-      booksGrid.querySelectorAll('.book-card').forEach(card => {
-        card.classList.add('visible');
-        card.querySelector('.add-cart-btn').addEventListener('click', (event) => {
-          event.stopPropagation();
-          addToCart(card.dataset.title, card.dataset.genre);
-        });
-      });
-    }
-
-    function filterBooks(query) {
-      const term = query.trim().toLowerCase();
-      if (!term) return allBooks;
-      return allBooks.filter(book =>
-        book.title.toLowerCase().includes(term) ||
-        book.author.toLowerCase().includes(term) ||
-        book.genre.toLowerCase().includes(term)
-      );
-    }
-
-    booksSearchInput.addEventListener('input', () => {
-      renderBooks(filterBooks(booksSearchInput.value));
     });
 
-    fetch(`${API_BASE}/api/books`)
-      .then(response => response.json())
-      .then(data => {
-        allBooks = data.books || [];
-        renderBooks(allBooks);
-      })
-      .catch(() => {
-        booksLoading.textContent = 'Could not load books right now. Please refresh the page.';
-      });
+    loadBooks();
 
     cartToggle.addEventListener('click', () => {
       const isOpen = cartDrawer.classList.contains('open');
@@ -652,6 +733,49 @@
       setSignedInState(savedAuth.user);
     } else {
       setSignedOutState();
+    }
+
+    /* ══ GRAND OPENING POP-UP ══════════════════════════════
+       Shows once per browser session — dismissing it keeps it away
+       until the visitor returns later. Swap sessionStorage for
+       localStorage to make that permanent, or remove the FLYER_KEY
+       check to show it on every page load. */
+    const FLYER_KEY = 'lexibooks-flyer-grand-opening';
+    const flyerBackdrop = document.getElementById('flyer-backdrop');
+    const flyerClose = document.getElementById('flyer-close');
+    let flyerLastFocus = null;
+
+    function openFlyer() {
+      flyerLastFocus = document.activeElement;
+      flyerBackdrop.classList.add('open');
+      flyerBackdrop.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+      flyerClose.focus();
+    }
+
+    function closeFlyer() {
+      flyerBackdrop.classList.remove('open');
+      flyerBackdrop.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+      sessionStorage.setItem(FLYER_KEY, 'dismissed');
+      if (flyerLastFocus) flyerLastFocus.focus();
+    }
+
+    flyerClose.addEventListener('click', closeFlyer);
+    flyerBackdrop.addEventListener('click', (event) => {
+      if (event.target === flyerBackdrop) closeFlyer();   // backdrop only, not the card
+    });
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape' && flyerBackdrop.classList.contains('open')) closeFlyer();
+    });
+    // Following the call to action counts as dismissing it.
+    flyerBackdrop.querySelector('.fm-cta').addEventListener('click', () => {
+      sessionStorage.setItem(FLYER_KEY, 'dismissed');
+    });
+
+    if (!sessionStorage.getItem(FLYER_KEY)) {
+      // Brief beat so the page paints first and it doesn't feel like a wall.
+      setTimeout(openFlyer, 700);
     }
   </script>
 

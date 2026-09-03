@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" href="logo.svg" type="image/svg+xml" />
+  <title>Lexi Grand Opening — Flyer</title>
+  <link rel="stylesheet" href="flyer.css" />
+</head>
+
+<body class="flyer-preview">
+
+  <section class="flyer-sheet flyer-simple">
+
+    <svg class="fs-mark" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" role="img"
+      aria-label="Lexibooks bookmark">
+      <circle cx="32" cy="32" r="30" fill="#FFC93C" />
+      <path d="M20 14 H44 A2 2 0 0 1 46 16 V50 L32 40 L18 50 V16 A2 2 0 0 1 20 14 Z" fill="#0D5476" />
+    </svg>
+
+    <div class="fs-wordmark">LEXI<span class="b">BOOKS</span></div>
+    <p class="fs-tagline">A student-led bookstore</p>
+
+    <div class="fs-rule"></div>
+
+    <p class="fs-eyebrow">You're invited to our</p>
+    <h1 class="fs-headline">Grand Opening</h1>
+    <p class="fs-sub">Gently used and new books, hand-picked for every kind of reader — including the ones who haven't
+      finished a book in years.</p>
+
+    <div class="fs-card">
+      <p class="fs-card-label">Prices</p>
+      <div class="fs-row"><span class="n">One book</span><span class="d"></span><span class="v">$3</span></div>
+      <div class="fs-row"><span class="n">Bundle of three</span><span class="d"></span><span class="v">$6</span></div>
+    </div>
+
+    <div class="fs-spacer"></div>
+
+    <p class="fs-address-label">Find us</p>
+    <p class="fs-address">930 Roosevelt, Room 226<br>Irvine, CA 92620</p>
+
+    <p class="fs-contact">
+      contact@lexibookstore.online<br>
+      @lexibookstore · lexibookstore.online
+    </p>
+
+  </section>
+
+  <script>
+    /* When embedded in the viewer page, drop the desk-grey backdrop
+       so the sheet sits flush in its preview frame. */
+    if (window.self !== window.top) document.body.classList.remove('flyer-preview');
+  </script>
+
+</body>
+
+</html>
