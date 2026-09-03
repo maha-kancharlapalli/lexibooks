@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" href="logo.svg" type="image/svg+xml" />
+  <title>Flyers | Lexibooks</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* Sheets are a fixed 8.5×11in (816×1056px). Each preview renders the
+       real page in an iframe and scales it down, so what you see here is
+       exactly what prints — no second copy of the design to keep in sync. */
+    :root {
+      --sheet-w: 816px;
+      --sheet-h: 1056px;
+      --scale: 0.52;
+    }
+
+    body.flyers-page {
+      background: var(--cream);
+      min-height: 100vh;
+    }
+
+    .fv-header {
+      padding: 10rem 3rem 2.5rem;
+      text-align: center;
+    }
+
+    .fv-eyebrow {
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--sky-dark);
+      margin-bottom: 1rem;
+    }
+
+    .fv-title {
+      font-family: var(--font-display);
+      font-size: clamp(2.4rem, 6vw, 4rem);
+      color: var(--navy);
+      letter-spacing: 0.02em;
+      line-height: 1;
+    }
+
+    .fv-sub {
+      max-width: 520px;
+      margin: 1.1rem auto 0;
+      font-size: 1rem;
+      line-height: 1.7;
+      color: rgba(10, 31, 46, 0.6);
+    }
+
+    .fv-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: flex-start;
+      gap: 3.5rem 3rem;
+      padding: 2rem 3rem 6rem;
+    }
+
+    .fv-card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .fv-frame {
+      width: calc(var(--sheet-w) * var(--scale));
+      height: calc(var(--sheet-h) * var(--scale));
+      overflow: hidden;
+      border-radius: 3px;
+      box-shadow: 0 14px 44px rgba(13, 84, 118, 0.22);
+      background: #fff;
+    }
+
+    .fv-frame iframe {
+      width: var(--sheet-w);
+      height: var(--sheet-h);
+      border: 0;
+      display: block;
+      transform: scale(var(--scale));
+      transform-origin: top left;
+      pointer-events: none;
+    }
+
+    .fv-name {
+      margin-top: 1.4rem;
+      font-family: var(--font-display);
+      font-size: 1.35rem;
+      letter-spacing: 0.03em;
+      color: var(--navy);
+    }
+
+    .fv-meta {
+      margin-top: 0.35rem;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(10, 31, 46, 0.45);
+    }
+
+    .fv-actions {
+      display: flex;
+      gap: 0.6rem;
+      margin-top: 1.1rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .fv-btn {
+      display: inline-block;
+      padding: 0.75rem 1.5rem;
+      background: var(--navy);
+      color: var(--cream);
+      border-radius: 2px;
+      font-size: 0.68rem;
+      font-weight: 800;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      transition: background 0.2s, transform 0.2s;
+    }
+
+    .fv-btn:hover {
+      background: var(--sky-dark);
+      transform: translateY(-2px);
+    }
+
+    .fv-btn-ghost {
+      background: transparent;
+      color: var(--navy);
+      border: 2px solid var(--navy);
+      padding: 0.65rem 1.4rem;
+    }
+
+    .fv-btn-ghost:hover {
+      background: var(--navy);
+      color: var(--cream);
+    }
+
+    .fv-note {
+      max-width: 640px;
+      margin: 0 auto;
+      padding: 0 3rem 5rem;
+      text-align: center;
+      font-size: 0.9rem;
+      line-height: 1.75;
+      color: rgba(10, 31, 46, 0.55);
+    }
+
+    @media (max-width: 1000px) {
+      :root {
+        --scale: 0.42;
+      }
+    }
+
+    @media (max-width: 900px) {
+      .fv-header {
+        padding: 8rem 1.5rem 2rem;
+      }
+
+      .fv-grid {
+        padding: 1.5rem 1.5rem 4rem;
+      }
+
+      .fv-note {
+        padding: 0 1.5rem 3rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      :root {
+        --scale: 0.36;
+      }
+    }
+  </style>
+</head>
+
+<body class="flyers-page">
+
+  <nav id="navbar">
+    <a href="index.html#home" class="nav-logo"><span>LEXI</span>BOOKS</a>
+    <ul class="nav-links">
+      <li><a href="index.html#home">Home</a></li>
+      <li><a href="index.html#books">Books</a></li>
+      <li><a href="questionnaire.html">Questionnaire</a></li>
+      <li><a href="team.html">Team</a></li>
+      <li><a href="flyers.html" class="active">Flyers</a></li>
+    </ul>
+    <div class="nav-right">
+      <a href="https://www.instagram.com/lexibookstore/" target="_blank" class="nav-insta" aria-label="Instagram">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path
+            d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+        </svg>
+      </a>
+    </div>
+  </nav>
+
+  <header class="fv-header">
+    <p class="fv-eyebrow">Print Materials</p>
+    <h1 class="fv-title">Grand Opening Flyers</h1>
+    <p class="fv-sub">Both are US Letter, one page, ready to print. Previews below are the live pages, scaled down —
+      what you see is what comes out.</p>
+  </header>
+
+  <section class="fv-grid">
+
+    <article class="fv-card">
+      <div class="fv-frame">
+        <iframe src="flyer-simple.html" title="Simplified grand opening flyer" scrolling="no" loading="lazy"></iframe>
+      </div>
+      <h2 class="fv-name">Simplified</h2>
+      <p class="fv-meta">8.5 × 11 in · 1 page · Logo-led</p>
+      <div class="fv-actions">
+        <a class="fv-btn" href="flyers/lexi-grand-opening-simple.pdf" download>Download PDF</a>
+        <a class="fv-btn fv-btn-ghost" href="flyer-simple.html" target="_blank">Full size</a>
+      </div>
+    </article>
+
+    <article class="fv-card">
+      <div class="fv-frame">
+        <iframe src="flyer-detailed.html" title="Detailed grand opening flyer" scrolling="no" loading="lazy"></iframe>
+      </div>
+      <h2 class="fv-name">Detailed</h2>
+      <p class="fv-meta">8.5 × 11 in · 1 page · With covers</p>
+      <div class="fv-actions">
+        <a class="fv-btn" href="flyers/lexi-grand-opening-detailed.pdf" download>Download PDF</a>
+        <a class="fv-btn fv-btn-ghost" href="flyer-detailed.html" target="_blank">Full size</a>
+      </div>
+    </article>
+
+  </section>
+
+  <p class="fv-note">
+    Prices are $3 for one book and $6 for a bundle of three. To change them, edit the price rows in
+    <strong>flyer-simple.html</strong> and <strong>flyer-detailed.html</strong> and regenerate.
+    To print straight from the browser, open a flyer full size and use Print with margins set to <em>None</em> and
+    background graphics turned on.
+  </p>
+
+  <footer>
+    <div class="footer-logo">LEXIBOOKS</div>
+    <div>© 2025 LexiBooks</div>
+  </footer>
+
+  <script>
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      navbar.classList.toggle('scrolled', window.scrollY > 20);
+    });
+  </script>
+
+</body>
+
+</html>
