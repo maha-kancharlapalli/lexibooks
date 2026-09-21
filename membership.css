@@ -1,0 +1,393 @@
+/* ═══════════════════════════════════════════════
+   LEXIBOOKS — membership.css
+   Loads after style.css and reuses its tokens.
+═══════════════════════════════════════════════ */
+
+.mem-page {
+  background: var(--cream);
+}
+
+/* ── HEADER ── */
+.mem-hero {
+  padding: 11rem 4rem 3rem;
+  text-align: center;
+}
+
+.mem-eyebrow {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--sun-deep);
+  margin-bottom: 1.2rem;
+}
+
+.mem-title {
+  font-family: var(--font-display);
+  font-size: clamp(2.4rem, 6.5vw, 4.6rem);
+  line-height: 1;
+  letter-spacing: 0.02em;
+  color: var(--navy);
+}
+
+.mem-intro {
+  max-width: 560px;
+  margin: 1.4rem auto 0;
+  font-size: 1.05rem;
+  line-height: 1.75;
+  color: rgba(10, 31, 46, 0.62);
+}
+
+/* ── PLAN CARD ──
+   One plan, so it gets the whole stage rather than sitting in a
+   three-column grid pretending there are tiers to compare. */
+.mem-plan-wrap {
+  display: flex;
+  justify-content: center;
+  padding: 3rem 1.5rem 0;
+}
+
+.mem-plan {
+  width: min(460px, 100%);
+  background: var(--navy);
+  color: var(--cream);
+  border-radius: 6px;
+  padding: 2.6rem 2.4rem 2.2rem;
+  text-align: center;
+  box-shadow: 0 22px 60px rgba(13, 84, 118, 0.26);
+}
+
+.mem-plan-name {
+  font-size: 0.66rem;
+  font-weight: 800;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--sky);
+}
+
+.mem-price {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 0.2rem;
+  margin-top: 1rem;
+  font-family: var(--font-display);
+  color: var(--sun);
+  line-height: 0.9;
+}
+
+.mem-price .cur {
+  font-size: 1.7rem;
+  margin-top: 0.5rem;
+}
+
+.mem-price .amt {
+  font-size: clamp(3.4rem, 12vw, 4.6rem);
+  letter-spacing: 0.01em;
+}
+
+.mem-period {
+  margin-top: 0.7rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(254, 250, 240, 0.6);
+}
+
+.mem-includes {
+  list-style: none;
+  margin: 1.9rem 0 0;
+  padding: 1.7rem 0 0;
+  border-top: 1px solid rgba(254, 250, 240, 0.18);
+  text-align: left;
+}
+
+.mem-includes li {
+  display: flex;
+  gap: 0.8rem;
+  padding: 0.55rem 0;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: rgba(254, 250, 240, 0.9);
+}
+
+.mem-includes li::before {
+  content: '';
+  flex-shrink: 0;
+  width: 9px;
+  height: 9px;
+  margin-top: 0.44rem;
+  border-radius: 2px;
+  background: var(--sun);
+}
+
+.mem-cta {
+  display: inline-block;
+  width: 100%;
+  margin-top: 1.9rem;
+  padding: 1rem 2rem;
+  background: var(--sun);
+  color: var(--navy-deep);
+  border: none;
+  border-radius: 2px;
+  font-family: var(--font-body);
+  font-size: 0.74rem;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s;
+}
+
+.mem-cta:hover,
+.mem-cta:focus-visible {
+  background: var(--cream);
+  transform: translateY(-2px);
+}
+
+.mem-plan-note {
+  margin-top: 1rem;
+  font-size: 0.74rem;
+  line-height: 1.6;
+  color: rgba(254, 250, 240, 0.55);
+}
+
+/* ── SECTIONS ── */
+.mem-section {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 5rem 4rem 0;
+}
+
+.mem-section-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.6rem, 3.4vw, 2.3rem);
+  letter-spacing: 0.02em;
+  color: var(--navy);
+  text-align: center;
+}
+
+.mem-section-sub {
+  max-width: 520px;
+  margin: 0.9rem auto 0;
+  text-align: center;
+  font-size: 0.98rem;
+  line-height: 1.7;
+  color: rgba(10, 31, 46, 0.6);
+}
+
+/* ── STEPS ── */
+.mem-steps {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+  margin-top: 3rem;
+  list-style: none;
+  counter-reset: step;
+}
+
+.mem-step {
+  counter-increment: step;
+}
+
+.mem-step::before {
+  content: counter(step, decimal-leading-zero);
+  display: block;
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  color: var(--sun-deep);
+  margin-bottom: 0.7rem;
+}
+
+.mem-step b {
+  display: block;
+  font-size: 1.05rem;
+  font-weight: 800;
+  letter-spacing: 0.01em;
+  color: var(--navy);
+  margin-bottom: 0.45rem;
+}
+
+.mem-step span {
+  display: block;
+  font-size: 0.92rem;
+  line-height: 1.65;
+  color: rgba(10, 31, 46, 0.62);
+}
+
+/* ── FAQ ── */
+.mem-faq {
+  max-width: 720px;
+  margin: 2.6rem auto 0;
+}
+
+.mem-faq details {
+  border-bottom: 1px solid rgba(13, 84, 118, 0.16);
+}
+
+.mem-faq summary {
+  padding: 1.15rem 2rem 1.15rem 0;
+  position: relative;
+  cursor: pointer;
+  list-style: none;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--navy);
+}
+
+.mem-faq summary::-webkit-details-marker {
+  display: none;
+}
+
+.mem-faq summary::after {
+  content: '+';
+  position: absolute;
+  right: 0.3rem;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1.3rem;
+  font-weight: 400;
+  color: var(--sun-deep);
+  transition: transform 0.2s;
+}
+
+.mem-faq details[open] summary::after {
+  content: '−';
+}
+
+.mem-faq p {
+  padding: 0 2rem 1.3rem 0;
+  font-size: 0.95rem;
+  line-height: 1.75;
+  color: rgba(10, 31, 46, 0.66);
+}
+
+/* ── WAITLIST ── */
+.mem-join {
+  max-width: 560px;
+  margin: 5rem auto 0;
+  padding: 0 1.5rem 6rem;
+  text-align: center;
+}
+
+.mem-form {
+  display: grid;
+  gap: 1rem;
+  margin-top: 2rem;
+  text-align: left;
+}
+
+.mem-field label {
+  display: block;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--navy);
+  margin-bottom: 0.45rem;
+}
+
+.mem-field input,
+.mem-field select {
+  width: 100%;
+  padding: 0.9rem 1.1rem;
+  background: #fff;
+  border: 2px solid var(--pale-blue);
+  border-radius: 4px;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  color: var(--ink);
+  transition: border-color 0.18s;
+}
+
+.mem-field input:focus,
+.mem-field select:focus {
+  outline: none;
+  border-color: var(--sky-dark);
+}
+
+.mem-submit {
+  padding: 1rem 2rem;
+  background: var(--navy);
+  color: var(--cream);
+  border: none;
+  border-radius: 2px;
+  font-family: var(--font-body);
+  font-size: 0.74rem;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s;
+}
+
+.mem-submit:hover:not(:disabled) {
+  background: var(--sky-dark);
+  transform: translateY(-2px);
+}
+
+.mem-submit:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.mem-msg {
+  min-height: 1.4rem;
+  margin-top: 0.4rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--navy);
+}
+
+.mem-msg.error {
+  color: #b3453a;
+}
+
+.mem-done {
+  padding: 2.2rem 1.5rem;
+  background: var(--pale-blue);
+  border-radius: 5px;
+}
+
+.mem-done h3 {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  color: var(--navy);
+  margin-bottom: 0.7rem;
+}
+
+.mem-done p {
+  font-size: 0.96rem;
+  line-height: 1.7;
+  color: rgba(10, 31, 46, 0.65);
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 900px) {
+  .mem-hero {
+    padding: 9rem 1.5rem 2rem;
+  }
+
+  .mem-section {
+    padding: 3.5rem 1.5rem 0;
+  }
+
+  .mem-steps {
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem 1.5rem;
+  }
+}
+
+@media (max-width: 560px) {
+  .mem-steps {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mem-cta,
+  .mem-submit {
+    transition: none;
+  }
+}

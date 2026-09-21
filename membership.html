@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" href="logo.svg" type="image/svg+xml" />
+  <title>Membership | Lexibooks</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="membership.css" />
+  <script src="supabase-config.js"></script>
+</head>
+
+<body class="mem-page">
+
+  <!-- ══ NAV ══ -->
+  <nav id="navbar">
+    <a href="index.html#home" class="nav-logo"><span>LEXI</span>BOOKS</a>
+    <ul class="nav-links">
+      <li><a href="index.html#home">Home</a></li>
+      <li><a href="index.html#about">Mission</a></li>
+      <li><a href="index.html#books">Books</a></li>
+      <li><a href="questionnaire.html">Questionnaire</a></li>
+      <li><a href="membership.html" class="active">Membership</a></li>
+      <li><a href="team.html">Team</a></li>
+    </ul>
+    <div class="nav-right">
+      <a href="https://www.instagram.com/lexibookstore/" target="_blank" class="nav-insta" aria-label="Instagram">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path
+            d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+        </svg>
+      </a>
+    </div>
+  </nav>
+
+  <!-- ══ HEADER ══ -->
+  <header class="mem-hero">
+    <p class="mem-eyebrow">Membership</p>
+    <h1 class="mem-title">Three books at a time,<br>all year long.</h1>
+    <p class="mem-intro">For readers who've found their footing and want a steady supply — without buying a shelf they
+      don't have room for.</p>
+  </header>
+
+  <!-- ══ PLAN ══
+       To change the price, edit the two spans in .mem-price and the
+       matching figure in the FAQ below. Nothing else references it. -->
+  <div class="mem-plan-wrap">
+    <div class="mem-plan">
+      <p class="mem-plan-name">Reader's Pass</p>
+      <div class="mem-price">
+        <span class="cur">$</span><span class="amt">11.99</span>
+      </div>
+      <p class="mem-period">per month · cancel anytime</p>
+
+      <ul class="mem-includes">
+        <li>Three books out at a time, swapped as often as you like</li>
+        <li>No due dates and no late fees — read at your own pace</li>
+        <li>First pick of new donations before they reach the shelf</li>
+        <li>Members keep any book they fall in love with for $2</li>
+        <li>A hand-picked suggestion each month, if you want one</li>
+      </ul>
+
+      <button type="button" class="mem-cta" id="mem-cta">Join the waitlist</button>
+      <p class="mem-plan-note">Not open yet. Join the list and we'll email you first when memberships go live.</p>
+    </div>
+  </div>
+
+  <!-- ══ HOW IT WORKS ══ -->
+  <section class="mem-section">
+    <h2 class="mem-section-title">How it works</h2>
+    <p class="mem-section-sub">The same shelf, the same hand-picked matches — you just never run out.</p>
+    <ol class="mem-steps">
+      <li class="mem-step"><b>Join</b><span>Pick the pass and tell us what you're into. Two minutes, same questions as
+          the matcher.</span></li>
+      <li class="mem-step"><b>Collect</b><span>Pick up three books from Room 226, chosen by you or picked for you.</span>
+      </li>
+      <li class="mem-step"><b>Read</b><span>Keep them as long as you need. We will never charge you a late fee.</span>
+      </li>
+      <li class="mem-step"><b>Swap</b><span>Bring them back whenever, take three more. As many times a month as you
+          like.</span></li>
+    </ol>
+  </section>
+
+  <!-- ══ FAQ ══ -->
+  <section class="mem-section">
+    <h2 class="mem-section-title">Questions</h2>
+    <div class="mem-faq">
+      <details>
+        <summary>How many books can I have out at once?</summary>
+        <p>Three. Swap them as often as you like — there's no monthly cap on how many you get through, only on how many
+          you hold at a time.</p>
+      </details>
+      <details>
+        <summary>What if I'm slow, or I stop reading for a while?</summary>
+        <p>That's fine. There are no due dates and no late fees. We built this for people who are still finding their
+          way back to reading, and a deadline is the fastest way to make that feel like homework.</p>
+      </details>
+      <details>
+        <summary>What if I want to keep a book?</summary>
+        <p>Members pay $2 for any book they want to keep, instead of the usual $3. Just tell us when you swap.</p>
+      </details>
+      <details>
+        <summary>Can I cancel?</summary>
+        <p>Any time, no notice needed. Bring your books back whenever you next pass by.</p>
+      </details>
+      <details>
+        <summary>Where do I pick up and drop off?</summary>
+        <p>930 Roosevelt, Room 226, Irvine, CA 92620. Same place as every other Lexi pick-up.</p>
+      </details>
+      <details>
+        <summary>What happens to the money?</summary>
+        <p>It goes straight back into the shelf — buying the titles people ask for that nobody has donated, and keeping
+          books free for readers who can't pay.</p>
+      </details>
+    </div>
+  </section>
+
+  <!-- ══ WAITLIST ══ -->
+  <section class="mem-join" id="mem-join">
+    <h2 class="mem-section-title">Be first in line</h2>
+    <p class="mem-section-sub">Memberships aren't open yet. Tell us you're interested and we'll email you when they
+      are — no charge until you say yes.</p>
+
+    <form class="mem-form" id="mem-form" novalidate>
+      <div class="mem-field">
+        <label for="mem-name">First name</label>
+        <input type="text" id="mem-name" autocomplete="given-name" required />
+      </div>
+      <div class="mem-field">
+        <label for="mem-email">Email</label>
+        <input type="email" id="mem-email" autocomplete="email" required />
+      </div>
+      <div class="mem-field">
+        <label for="mem-pace">Honestly, how many books a month would you get through?</label>
+        <select id="mem-pace">
+          <option value="">Pick one</option>
+          <option value="Less than one">Less than one</option>
+          <option value="About one">About one</option>
+          <option value="Two or three">Two or three</option>
+          <option value="More than three">More than three</option>
+        </select>
+      </div>
+      <button type="submit" class="mem-submit" id="mem-submit">Join the waitlist</button>
+      <p class="mem-msg" id="mem-msg"></p>
+    </form>
+
+    <div class="mem-done" id="mem-done" hidden>
+      <h3>You're on the list.</h3>
+      <p id="mem-done-copy">We'll email you as soon as memberships open. Nothing is charged until you sign up.</p>
+    </div>
+  </section>
+
+  <!-- ══ FOOTER ══ -->
+  <footer>
+    <div class="footer-logo">LEXIBOOKS</div>
+    <div>© 2025 LexiBooks</div>
+  </footer>
+
+  <script>
+    const STORE_KEY = 'lexibooks-membership-interest';
+    const form = document.getElementById('mem-form');
+    const msg = document.getElementById('mem-msg');
+    const submit = document.getElementById('mem-submit');
+
+    document.getElementById('mem-cta').addEventListener('click', () => {
+      document.getElementById('mem-join').scrollIntoView({ behavior: 'smooth' });
+      setTimeout(() => document.getElementById('mem-name').focus(), 500);
+    });
+
+    form.addEventListener('submit', async (event) => {
+      event.preventDefault();
+      const name = document.getElementById('mem-name').value.trim();
+      const email = document.getElementById('mem-email').value.trim();
+
+      if (!name) return fail('Please add your first name so we know who to write to.');
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) return fail("That email doesn't look right — mind checking it?");
+
+      const entry = {
+        name,
+        email,
+        pace: document.getElementById('mem-pace').value || null,
+        plan: "Reader's Pass",
+        price_cents: 1199
+      };
+
+      submit.disabled = true;
+      submit.textContent = 'Adding you…';
+      msg.className = 'mem-msg';
+      msg.textContent = '';
+
+      // Local copy first — Supabase can be paused, and an interested
+      // reader shouldn't be lost to our infrastructure.
+      const saved = JSON.parse(localStorage.getItem(STORE_KEY) || '[]');
+      saved.push({ ...entry, submittedAt: new Date().toISOString() });
+      localStorage.setItem(STORE_KEY, JSON.stringify(saved));
+
+      try {
+        await window.lexiDb.insert('membership_interest', entry);
+      } catch (error) {
+        console.warn('Membership interest kept locally only:', error.message);
+      } finally {
+        submit.disabled = false;
+        submit.textContent = 'Join the waitlist';
+      }
+
+      document.getElementById('mem-done-copy').textContent =
+        `Thanks, ${name}. We'll email ${email} as soon as memberships open. Nothing is charged until you sign up.`;
+      form.hidden = true;
+      document.getElementById('mem-done').hidden = false;
+      document.getElementById('mem-done').scrollIntoView({ behavior: 'smooth', block: 'center' });
+    });
+
+    function fail(text) {
+      msg.className = 'mem-msg error';
+      msg.textContent = text;
+    }
+
+    /* Paste exportMembershipInterest() into the console to recover
+       anyone captured while Supabase was unreachable. */
+    window.exportMembershipInterest = () => JSON.parse(localStorage.getItem(STORE_KEY) || '[]');
+
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      navbar.classList.toggle('scrolled', window.scrollY > 20);
+    });
+  </script>
+
+</body>
+
+</html>

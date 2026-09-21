@@ -23,8 +23,8 @@ if (!JWT_SECRET) {
 
 app.use(cors({
   origin: [
-    'https://lexibooks.store',
-    'https://www.lexibooks.store',
+    'https://lexibookstore.online',
+    'https://www.lexibookstore.online',
     'http://localhost:3000',
     'http://127.0.0.1:5500'
   ],

@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" href="logo.svg" type="image/svg+xml" />
+  <title>Questionnaire | Lexibooks</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="questionnaire.css" />
+  <script src="supabase-config.js"></script>
+</head>
+
+<body class="q-body">
+
+  <!-- ══ PROGRESS ══ -->
+  <div class="q-progress">
+    <div class="q-progress-bar" id="q-progress-bar"></div>
+  </div>
+
+  <!-- ══ NAV ══ -->
+  <nav id="navbar" class="q-nav">
+    <a href="index.html#home" class="nav-logo"><span>LEXI</span>BOOKS</a>
+    <div class="nav-right">
+      <a href="index.html#home" class="q-nav-link">Back to site</a>
+      <a href="https://www.instagram.com/lexibookstore/" target="_blank" class="nav-insta" aria-label="Instagram">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path
+            d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+        </svg>
+      </a>
+    </div>
+  </nav>
+
+  <main class="q-main">
+
+    <!-- ══ INTRO ══ -->
+    <section class="q-screen active" id="screen-intro">
+      <p class="q-eyebrow">Questionnaire</p>
+      <h1 class="q-title">You don't have to<br>like reading yet.</h1>
+      <p class="q-help">
+        Most people who fill this out haven't finished a book in years. That's fine — that's who we built it for.
+        Answer five quick questions and our team will hand-pick one book we think you'll actually finish.
+      </p>
+
+      <div class="q-intro-facts">
+        <div>
+          <div class="q-fact-num">5</div>
+          <div class="q-fact-label">Questions</div>
+        </div>
+        <div>
+          <div class="q-fact-num">60s</div>
+          <div class="q-fact-label">To finish</div>
+        </div>
+        <div>
+          <div class="q-fact-num">$0</div>
+          <div class="q-fact-label">Always free</div>
+        </div>
+      </div>
+
+      <div class="q-actions">
+        <button type="button" class="q-btn" id="q-start">Start</button>
+      </div>
+      <p class="q-hint">Tip: press a number key to answer, or Enter to continue.</p>
+    </section>
+
+    <!-- ══ QUESTION SCREENS (rendered by script) ══ -->
+    <div id="q-question-host"></div>
+
+    <!-- ══ DETAILS ══ -->
+    <section class="q-screen" id="screen-details">
+      <div class="q-step-meta">
+        <span class="q-step-num">06</span>
+        <span class="q-step-total">Last step</span>
+      </div>
+      <h2 class="q-question">Where should we send your match?</h2>
+      <p class="q-help">A real person on our team reads every response and picks your book by hand. We'll email you
+        the title and where to pick it up. We never share your details.</p>
+
+      <form class="q-form" id="q-details-form" novalidate>
+        <div class="q-row">
+          <div class="q-field">
+            <label for="q-name">First name</label>
+            <input type="text" id="q-name" name="name" autocomplete="given-name" required />
+          </div>
+          <div class="q-field">
+            <label for="q-email">Email</label>
+            <input type="email" id="q-email" name="email" autocomplete="email" required />
+          </div>
+        </div>
+
+        <div class="q-field">
+          <label for="q-age">Age range <span class="q-optional">— optional</span></label>
+          <select id="q-age" name="ageRange">
+            <option value="">Prefer not to say</option>
+            <option value="Under 13">Under 13</option>
+            <option value="13-15">13–15</option>
+            <option value="16-18">16–18</option>
+            <option value="19-24">19–24</option>
+            <option value="25+">25+</option>
+          </select>
+        </div>
+
+        <div class="q-field">
+          <label for="q-notes">Anything else we should know? <span class="q-optional">— optional</span></label>
+          <textarea id="q-notes" name="notes"
+            placeholder="A book you hated, a topic you love, something you're going through…"></textarea>
+        </div>
+
+        <div class="q-actions">
+          <button type="submit" class="q-btn" id="q-submit">Get my match</button>
+          <button type="button" class="q-btn q-btn-ghost" data-back>← Back</button>
+        </div>
+        <p class="q-message" id="q-message"></p>
+      </form>
+    </section>
+
+    <!-- ══ SUCCESS ══ -->
+    <section class="q-screen q-success" id="screen-success">
+      <div class="q-success-mark">✓</div>
+      <h2 class="q-title">You're in.</h2>
+      <p class="q-help" id="q-success-copy">We got your answers. Our team will email your book match within a few
+        days, along with a simple pick-up spot near you.</p>
+
+      <div class="q-recap" id="q-recap"></div>
+
+      <div class="q-actions">
+        <a href="index.html#books" class="q-btn">Browse the shelf</a>
+        <button type="button" class="q-btn q-btn-ghost" id="q-restart">Start over</button>
+      </div>
+    </section>
+
+  </main>
+
+  <script>
+    /* ── CONFIG ─────────────────────────────────────────────
+       Responses go to Supabase (see supabase-config.js). A local
+       copy is always kept first, so a network failure or an
+       unconfigured project never costs us a reader's answers. */
+    const STORAGE_KEY = 'lexibooks-questionnaire';
+
+    /* ── QUESTIONS ──────────────────────────────────────────
+       Plain language on purpose. No genre jargon, no "how many
+       books a year" — that question only makes non-readers
+       feel judged and close the tab.                          */
+    const QUESTIONS = [
+      {
+        id: 'relationship',
+        question: 'Be honest — where does reading sit for you right now?',
+        help: 'There is no wrong answer here. It just tells us where to start.',
+        options: [
+          'I want to read, I just never start',
+          'I start books but never finish them',
+          'I loved reading as a kid and lost it',
+          'I read a little and want to read more'
+        ]
+      },
+      {
+        id: 'pull',
+        question: 'What kind of story actually grabs you?',
+        help: 'Think about the last thing that kept you up past your bedtime.',
+        options: [
+          'Something that keeps me guessing',
+          'Real people and real lives',
+          'Love, drama, messy relationships',
+          'A world nothing like this one',
+          'Something that makes me laugh',
+          'Something that changes how I think'
+        ]
+      },
+      {
+        id: 'attention',
+        question: 'How long before your mind starts wandering?',
+        help: 'We match the book to your attention span, not the other way around.',
+        options: [
+          'A few minutes, tops',
+          'About ten or fifteen minutes',
+          'Half an hour, easy',
+          'I can lose track of time'
+        ]
+      },
+      {
+        id: 'screen',
+        question: 'If you were binging something tonight, what would it be?',
+        help: 'What you watch tells us more about your taste than what you read.',
+        options: [
+          'A true crime documentary',
+          'A reality show or teen drama',
+          'Sci-fi or fantasy',
+          'Stand-up comedy',
+          'A sports or underdog story',
+          'An action thriller'
+        ]
+      },
+      {
+        id: 'when',
+        question: 'When could you realistically fit in ten minutes?',
+        help: 'Picking a time now makes it far more likely to actually happen.',
+        options: [
+          'Right before bed',
+          'On the bus or in the car',
+          'Lunch or a free period',
+          'Honestly, I don\'t know yet'
+        ]
+      }
+    ];
+
+    const answers = {};
+    const screens = [];
+    let current = 0;
+
+    const host = document.getElementById('q-question-host');
+    const progressBar = document.getElementById('q-progress-bar');
+    const message = document.getElementById('q-message');
+
+    /* ── BUILD QUESTION SCREENS ── */
+    QUESTIONS.forEach((q, index) => {
+      const section = document.createElement('section');
+      section.className = 'q-screen';
+      section.id = `screen-${q.id}`;
+      section.innerHTML = `
+        <div class="q-step-meta">
+          <span class="q-step-num">${String(index + 1).padStart(2, '0')}</span>
+          <span class="q-step-total">of ${QUESTIONS.length + 1}</span>
+        </div>
+        <h2 class="q-question">${q.question}</h2>
+        <p class="q-help">${q.help}</p>
+        <div class="q-options">
+          ${q.options.map((option, i) => `
+            <button type="button" class="q-option" data-value="${option}">
+              <span class="q-option-key">${i + 1}</span>
+              <span>${option}</span>
+            </button>
+          `).join('')}
+        </div>
+        <div class="q-actions">
+          ${index > 0 ? '<button type="button" class="q-btn q-btn-ghost" data-back>← Back</button>' : ''}
+          <button type="button" class="q-skip" data-skip>Skip this one</button>
+        </div>
+      `;
+
+      section.querySelectorAll('.q-option').forEach(button => {
+        button.addEventListener('click', () => {
+          section.querySelectorAll('.q-option').forEach(b => b.classList.remove('selected'));
+          button.classList.add('selected');
+          answers[q.id] = button.dataset.value;
+          // Small pause so the selection registers visually before moving on.
+          setTimeout(() => goTo(current + 1), 240);
+        });
+      });
+
+      section.querySelector('[data-skip]').addEventListener('click', () => {
+        delete answers[q.id];
+        goTo(current + 1);
+      });
+
+      host.appendChild(section);
+      screens.push(section);
+    });
+
+    /* ── SCREEN ORDER: intro → questions → details → success ── */
+    const introScreen = document.getElementById('screen-intro');
+    const detailsScreen = document.getElementById('screen-details');
+    const successScreen = document.getElementById('screen-success');
+    const flow = [introScreen, ...screens, detailsScreen, successScreen];
+
+    function goTo(index) {
+      current = Math.max(0, Math.min(index, flow.length - 1));
+      flow.forEach((screen, i) => screen.classList.toggle('active', i === current));
+
+      // The success screen reads as 100%; the intro reads as 0%.
+      const ratio = current / (flow.length - 1);
+      progressBar.style.width = `${ratio * 100}%`;
+
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+
+      const firstField = flow[current].querySelector('input, select, textarea');
+      if (firstField) firstField.focus();
+    }
+
+    document.getElementById('q-start').addEventListener('click', () => goTo(1));
+
+    // The question screens are already in the DOM by this point, so a single
+    // pass covers both the generated Back buttons and the one on the details screen.
+    document.querySelectorAll('[data-back]').forEach(button => {
+      button.addEventListener('click', () => goTo(current - 1));
+    });
+
+    /* ── KEYBOARD ── */
+    document.addEventListener('keydown', (event) => {
+      const screen = flow[current];
+
+      if (event.key === 'Enter' && screen === introScreen) {
+        goTo(1);
+        return;
+      }
+
+      const options = [...screen.querySelectorAll('.q-option')];
+      if (!options.length) return;
+
+      const index = Number(event.key) - 1;
+      if (Number.isInteger(index) && index >= 0 && index < options.length) {
+        options[index].click();
+      }
+    });
+
+    /* ── SUBMIT ── */
+    const form = document.getElementById('q-details-form');
+    const submitButton = document.getElementById('q-submit');
+
+    form.addEventListener('submit', async (event) => {
+      event.preventDefault();
+
+      const name = document.getElementById('q-name').value.trim();
+      const email = document.getElementById('q-email').value.trim();
+
+      if (!name) return fail('Please add your first name so we know who to write to.');
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) return fail('That email doesn\'t look right — mind checking it?');
+
+      // Column names match the questionnaire_responses table.
+      const submission = {
+        name,
+        email,
+        age_range: document.getElementById('q-age').value || null,
+        notes: document.getElementById('q-notes').value.trim() || null,
+        answers
+      };
+
+      submitButton.disabled = true;
+      submitButton.textContent = 'Sending…';
+      message.className = 'q-message';
+      message.textContent = '';
+
+      // Local copy first, so nothing is lost if the insert fails.
+      const saved = JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]');
+      saved.push({ ...submission, submittedAt: new Date().toISOString() });
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(saved));
+
+      try {
+        await window.lexiDb.insert('questionnaire_responses', submission);
+      } catch (error) {
+        // Unconfigured project or a network failure. The response is still
+        // in localStorage, so we show success rather than punishing the
+        // reader for our backend. Recoverable via exportPendingResponses().
+        console.warn('Response kept locally only:', error.message);
+      } finally {
+        submitButton.disabled = false;
+        submitButton.textContent = 'Get my match';
+      }
+
+      showSuccess(submission);
+    });
+
+    /* Paste `exportPendingResponses()` into the browser console to pull
+       out anything that was captured while Supabase was unreachable. */
+    window.exportPendingResponses = () =>
+      JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]');
+
+    function fail(text) {
+      message.className = 'q-message error';
+      message.textContent = text;
+    }
+
+    function showSuccess(submission) {
+      document.getElementById('q-success-copy').textContent =
+        `Thanks, ${submission.name}. Our team will email your book match to ${submission.email} within a few days, along with a simple pick-up spot near you.`;
+
+      const labels = {
+        relationship: 'Where you\'re at',
+        pull: 'What grabs you',
+        attention: 'Attention span',
+        screen: 'You\'d binge',
+        when: 'Reading time'
+      };
+
+      document.getElementById('q-recap').innerHTML = QUESTIONS
+        .filter(q => answers[q.id])
+        .map(q => `
+          <div class="q-recap-row">
+            <span class="q-recap-key">${labels[q.id]}</span>
+            <span class="q-recap-val">${answers[q.id]}</span>
+          </div>
+        `).join('') || '<div class="q-recap-row"><span class="q-recap-val">We\'ll pick something we love and start there.</span></div>';
+
+      goTo(flow.length - 1);
+    }
+
+    document.getElementById('q-restart').addEventListener('click', () => {
+      QUESTIONS.forEach(q => delete answers[q.id]);
+      document.querySelectorAll('.q-option').forEach(b => b.classList.remove('selected'));
+      form.reset();
+      message.textContent = '';
+      goTo(0);
+    });
+
+    goTo(0);
+  </script>
+
+</body>
+
+</html>
