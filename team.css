@@ -50,8 +50,9 @@
 }
 
 /* ── GRID ──
-   Flex rather than grid so a row that isn't full — five members
-   across three columns — stays centred instead of left-hanging. */
+   Flex rather than grid so a row that isn't full — a member count
+   that doesn't divide by three — stays centred instead of
+   left-hanging. Six members currently fill three columns by two. */
 .team-grid {
   display: flex;
   flex-wrap: wrap;
