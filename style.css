@@ -1185,26 +1185,28 @@ nav.scrolled {
   text-align: center;
 }
 
-.team-header {
+.team .team-header {
   margin-bottom: 4rem;
 }
 
-.team-title {
+.team .team-title {
   font-family: var(--font-display);
   font-size: clamp(2rem, 4vw, 3.4rem);
   color: var(--navy);
   letter-spacing: 0.03em;
 }
 
-.team-grid {
+.team .team-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  /* 240px floor over a 900px cap resolves to three columns, so six
+     members fill two full rows instead of leaving an orphan of two. */
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   gap: 2rem;
-  max-width: 1100px;
+  max-width: 900px;
   margin: 0 auto;
 }
 
-.team-card {
+.team .team-card {
   background: var(--cream);
   border-radius: 3px;
   border: 1px solid rgba(13, 84, 118, 0.08);
@@ -1212,12 +1214,12 @@ nav.scrolled {
   transition: transform 0.3s, box-shadow 0.3s;
 }
 
-.team-card:hover {
+.team .team-card:hover {
   transform: translateY(-10px);
   box-shadow: 0 24px 48px rgba(13, 84, 118, 0.15);
 }
 
-.team-photo {
+.team .team-photo {
   width: 100%;
   aspect-ratio: 1/1;
   margin: 0 auto 1.2rem;
@@ -1227,7 +1229,7 @@ nav.scrolled {
   display: block;
 }
 
-.team-name {
+.team .team-name {
   font-family: var(--font-body);
   font-size: 1rem;
   font-weight: 700;
@@ -1235,7 +1237,7 @@ nav.scrolled {
   margin-bottom: 0.4rem;
 }
 
-.team-role {
+.team .team-role {
   font-size: 0.76rem;
   font-weight: 500;
   letter-spacing: 0.03em;
