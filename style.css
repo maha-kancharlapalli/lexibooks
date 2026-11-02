@@ -1197,16 +1197,18 @@ nav.scrolled {
 }
 
 .team .team-grid {
-  display: grid;
-  /* 240px floor over a 900px cap resolves to three columns, so six
-     members fill two full rows instead of leaving an orphan of two. */
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  /* Flex rather than grid so a row that isn't full — seven members
+     across three columns — stays centred instead of left-hanging. */
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: 2rem;
   max-width: 900px;
   margin: 0 auto;
 }
 
 .team .team-card {
+  flex: 0 1 270px;
   background: var(--cream);
   border-radius: 3px;
   border: 1px solid rgba(13, 84, 118, 0.08);
