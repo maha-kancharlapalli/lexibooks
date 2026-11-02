@@ -52,7 +52,7 @@
 /* ── GRID ──
    Flex rather than grid so a row that isn't full — a member count
    that doesn't divide by three — stays centred instead of
-   left-hanging. Six members currently fill three columns by two. */
+   left-hanging. Seven members currently wrap as 3 + 3 + 1. */
 .team-grid {
   display: flex;
   flex-wrap: wrap;
