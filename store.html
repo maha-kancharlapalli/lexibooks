@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" href="logo.svg" type="image/svg+xml" />
+  <title>Brick-and-Mortar Store | Lexibooks</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="store.css" />
+</head>
+
+<body class="store-page">
+
+  <!-- ══ NAV ══ -->
+  <nav id="navbar">
+    <a href="index.html#home" class="nav-logo"><span>LEXI</span>BOOKS</a>
+    <ul class="nav-links">
+      <li><a href="index.html#home">Home</a></li>
+      <li><a href="index.html#about">Mission</a></li>
+      <li><a href="index.html#how">How It Works</a></li>
+      <li><a href="index.html#books">Books</a></li>
+      <li><a href="questionnaire.html">Questionnaire</a></li>
+      <li><a href="membership.html">Membership</a></li>
+      <li><a href="store.html" class="active">Brick-and-Mortar Store</a></li>
+      <li><a href="team.html">Team</a></li>
+    </ul>
+    <div class="nav-right">
+      <a href="https://www.instagram.com/lexibookstore/" target="_blank" class="nav-insta" aria-label="Instagram">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path
+            d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+        </svg>
+      </a>
+    </div>
+  </nav>
+
+  <!-- ══ HEADER ══ -->
+  <header class="store-hero">
+    <p class="store-eyebrow">Now Open</p>
+    <h1 class="store-title">Brick-and-Mortar Store</h1>
+    <p class="store-intro">
+      Lexi Bookstore has a physical home. Take a look around the shelves.
+    </p>
+    <div class="store-rule"></div>
+  </header>
+
+  <!-- ══ GALLERY ══ -->
+  <section class="store-gallery" id="store-gallery"></section>
+
+  <p class="store-note">
+    Follow <a href="https://www.instagram.com/lexibookstore/" target="_blank">@lexibookstore</a>
+    for what's new on the shelves.
+  </p>
+
+  <!-- ══ FOOTER ══ -->
+  <footer>
+    <div class="footer-logo">LEXIBOOKS</div>
+    <div>© 2025 LexiBooks</div>
+  </footer>
+
+  <script>
+    /* ══════════════════════════════════════════════════════════
+       EDIT THE PHOTOS HERE.
+
+       Each inner list is one row of two photos. For each photo:
+         src — path to the picture
+         w/h — its displayed width and height (any units, only the
+               ratio matters); keeps both photos in a row the same
+               height without cropping either one
+         alt — a short description for screen readers
+    ══════════════════════════════════════════════════════════ */
+    const ROWS = [
+      [
+        { src: 'images/store/01.jpg', w: 3, h: 4, alt: 'The Lexi Bookstore room with a window banner and a Now Open stand' },
+        { src: 'images/store/02.jpg', w: 3, h: 4, alt: 'Standing Now Open banner: bringing back the joy of reading, one book at a time' },
+      ],
+      [
+        { src: 'images/store/03.jpg', w: 4, h: 3, alt: 'Lexi Bookstore banner hung in the window' },
+        { src: 'images/store/06.jpg', w: 1320, h: 772, alt: 'The window banner above low shelves of books at dusk' },
+      ],
+      [
+        { src: 'images/store/07.jpg', w: 1201, h: 1696, alt: 'A cube shelf of book sets beside a children\'s picture book rack' },
+        { src: 'images/store/08.jpg', w: 1320, h: 793, alt: 'Picture book rack with Dr. Seuss favorites' },
+      ],
+      [
+        { src: 'images/store/04.jpg', w: 1122, h: 749, alt: 'Bookshelf with Divergent, Wings of Fire and Percy Jackson' },
+        { src: 'images/store/05.jpg', w: 1320, h: 834, alt: 'Cube shelves of middle-grade books under the window' },
+      ],
+      [
+        { src: 'images/store/10.jpg', w: 3, h: 4, alt: 'A tall bookcase filled with young adult and middle-grade books' },
+        { src: 'images/store/09.jpg', w: 3, h: 4, alt: 'Remarkably Bright Creatures on display atop a shelf' },
+      ],
+      [
+        { src: 'images/store/11.jpg', w: 4, h: 3, alt: 'A shelf of Wings of Fire, Riordan and classic titles' },
+        { src: 'images/store/12.jpg', w: 4, h: 3, alt: 'Riordan, Keeper of the Lost Cities and more on a shelf' },
+      ],
+      [
+        { src: 'images/store/13.jpg', w: 4, h: 3, alt: 'A shelf with Wicked, Holes, Nancy Drew and Paper Towns' },
+        { src: 'images/store/14.jpg', w: 4, h: 3, alt: 'A shelf with Divergent, Carry On and Dragon Rider' },
+      ],
+      [
+        { src: 'images/store/15.jpg', w: 4, h: 3, alt: 'Wonder, The House on Mango Street and The Hunger Games face out' },
+        { src: 'images/store/16.jpg', w: 4, h: 3, alt: 'The Mountain in the Sea and A Wrinkle in Time face out' },
+      ],
+      [
+        { src: 'images/store/17.jpg', w: 4, h: 3, alt: 'Two shelves including Sophie\'s World, Flipped and Deep Blue' },
+        { src: 'images/store/18.jpg', w: 4, h: 3, alt: 'The Phone Booth at the Edge of the World in a cube shelf' },
+      ],
+    ];
+
+    /* ── rendering ── */
+    const esc = (s) => String(s ?? '').replace(/[&<>"']/g,
+      c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+
+    const gallery = document.getElementById('store-gallery');
+    gallery.innerHTML = ROWS.map(row => `
+      <div class="store-row">
+        ${row.map(p => `
+          <figure class="store-photo" style="--ar: ${p.w / p.h}">
+            <img src="${esc(p.src)}" alt="${esc(p.alt)}" loading="lazy" />
+          </figure>`).join('')}
+      </div>`).join('');
+
+    // Reveal each row as it scrolls into view; the pair's second photo
+    // follows the first by a beat (see .store-photo + .store-photo).
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+          observer.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.2 });
+    gallery.querySelectorAll('.store-row').forEach(row => observer.observe(row));
+
+    // Sticky nav, matching the rest of the site.
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      navbar.classList.toggle('scrolled', window.scrollY > 20);
+    });
+  </script>
+
+</body>
+
+</html>
