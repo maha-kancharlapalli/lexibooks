@@ -1,0 +1,45 @@
+# ═══════════════════════════════════════════════════════════
+#  LEXIBOOKS — .gitignore
+#
+#  NOTE: supabase-config.js is deliberately NOT ignored. It holds
+#  the anon/publishable key, which is public by design and must
+#  ship with the site. Ignoring it would break the deployed page.
+#  Row level security, not key secrecy, protects that data.
+# ═══════════════════════════════════════════════════════════
+
+# ── Secrets: never commit these ──
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+secrets.txt
+credentials.json
+**/service-account*.json
+
+# ── Supabase local state ──
+supabase/.temp/
+supabase/.branches/
+
+# ── Node ──
+node_modules/
+npm-debug.log*
+yarn-error.log*
+
+# ── macOS / editors ──
+.DS_Store
+.AppleDouble
+Thumbs.db
+.vscode/
+.idea/
+*.swp
+
+# ── Internal, never published ──
+# These live in ~/Desktop/lexi-internal. Kept out of the repo because the
+# publish directory is the repo root — anything committed here becomes a
+# public URL on the live site, regardless of the repo being private.
+*.csv
+lexibooks-outline.md
+lexibooks-site-content.md
+data/

@@ -1,0 +1,147 @@
+/* ═══════════════════════════════════════════════
+   LEXIBOOKS — store.css
+   Loads after style.css and reuses its tokens.
+═══════════════════════════════════════════════ */
+
+.store-page {
+  background: var(--cream);
+}
+
+/* ── HEADER ── */
+.store-hero {
+  padding: 11rem 4rem 4rem;
+  text-align: center;
+  background: var(--cream);
+}
+
+.store-eyebrow {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--sky-dark);
+  margin-bottom: 1.2rem;
+}
+
+.store-title {
+  font-family: var(--font-display);
+  font-size: clamp(2.4rem, 6.5vw, 4.6rem);
+  line-height: 1.05;
+  letter-spacing: 0.02em;
+  color: var(--navy);
+  margin-bottom: 1.4rem;
+}
+
+.store-intro {
+  max-width: 560px;
+  margin: 0 auto;
+  font-size: 1.05rem;
+  font-weight: 400;
+  line-height: 1.75;
+  color: rgba(10, 31, 46, 0.6);
+  letter-spacing: 0.01em;
+}
+
+.store-rule {
+  width: 60px;
+  height: 3px;
+  background: var(--sky);
+  margin: 2.6rem auto 0;
+}
+
+/* ── GALLERY ──
+   Each row holds two photos. Their flex-grow is set to their aspect
+   ratio (--ar), so widths split in proportion and both end up the
+   same height — portrait and landscape shots pair without cropping. */
+.store-gallery {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 4rem 4rem 6rem;
+}
+
+.store-row {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.store-photo {
+  flex: var(--ar) 1 0;
+  min-width: 0;
+  margin: 0;
+  aspect-ratio: var(--ar);
+  border-radius: 3px;
+  overflow: hidden;
+  background: var(--pale-blue);
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.9s ease, transform 0.9s ease;
+}
+
+.store-photo + .store-photo {
+  transition-delay: 0.18s;
+}
+
+.store-row.visible .store-photo {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.store-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .store-photo {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+/* ── FOOTER NOTE ── */
+.store-note {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 0 4rem 6rem;
+  text-align: center;
+  font-size: 0.95rem;
+  line-height: 1.75;
+  color: rgba(10, 31, 46, 0.55);
+}
+
+.store-note a {
+  color: var(--navy);
+  font-weight: 600;
+  border-bottom: 2px solid var(--sky);
+  transition: border-color 0.2s;
+}
+
+.store-note a:hover {
+  border-color: var(--navy);
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 900px) {
+  .store-hero {
+    padding: 9rem 1.5rem 3rem;
+  }
+
+  .store-gallery {
+    padding: 3rem 1rem 4rem;
+    gap: 0.75rem;
+  }
+
+  .store-row {
+    gap: 0.75rem;
+  }
+
+  .store-note {
+    padding: 0 1.5rem 4rem;
+  }
+}
