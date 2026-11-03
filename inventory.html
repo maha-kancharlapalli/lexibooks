@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Lexibooks Inventory</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@300;400;500;600;700;800;900&family=Anton&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --bg: #FEFAF0;
+            --card: #ffffff;
+            --ink: #0a1f2e;
+            --muted: #1a6d96;
+            --accent: #0D5476;
+            --accent-ink: #FEFAF0;
+            --line: #E5F0FE;
+            --danger: #9c2e42;
+            --font-body: 'League Spartan', sans-serif;
+            --font-head: 'Anton', sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            background: var(--bg);
+            color: var(--ink);
+            font-family: var(--font-body);
+        }
+
+        header {
+            padding: 16px 16px 0;
+            max-width: 520px;
+            margin: 0 auto;
+        }
+
+        .brand {
+            font-family: var(--font-head);
+            letter-spacing: .18em;
+            font-size: 22px;
+        }
+
+        .brand em {
+            font-style: italic;
+            letter-spacing: .05em;
+            color: var(--accent);
+        }
+
+        nav {
+            display: flex;
+            gap: 4px;
+            margin-top: 12px;
+            border-bottom: 1px solid var(--line);
+        }
+
+        nav button {
+            flex: 1;
+            background: none;
+            border: 0;
+            padding: 10px;
+            font: inherit;
+            color: var(--muted);
+            cursor: pointer;
+            border-bottom: 3px solid transparent;
+        }
+
+        nav button.on {
+            color: var(--ink);
+            border-color: var(--accent);
+            font-weight: 600;
+        }
+
+        main {
+            max-width: 520px;
+            margin: 0 auto;
+            padding: 16px;
+        }
+
+        section {
+            display: none;
+        }
+
+        section.on {
+            display: block;
+        }
+
+        .card {
+            background: var(--card);
+            border: 1px solid var(--line);
+            border-radius: 12px;
+            padding: 14px;
+            margin-top: 12px;
+        }
+
+        button.btn {
+            background: var(--accent);
+            color: var(--accent-ink);
+            border: 0;
+            border-radius: 8px;
+            padding: 10px 16px;
+            font: inherit;
+            cursor: pointer;
+        }
+
+        button.btn.alt {
+            background: none;
+            color: var(--ink);
+            border: 1px solid var(--line);
+        }
+
+        button.btn.danger {
+            background: var(--danger);
+        }
+
+        input {
+            width: 100%;
+            padding: 9px;
+            border: 1px solid var(--line);
+            border-radius: 8px;
+            font: inherit;
+            margin: 4px 0 10px;
+            background: var(--card);
+        }
+
+        label {
+            font-size: 13px;
+            color: var(--muted);
+        }
+
+        .seg {
+            display: flex;
+            border: 1px solid var(--line);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .seg button {
+            flex: 1;
+            padding: 10px;
+            border: 0;
+            background: var(--card);
+            font: inherit;
+            cursor: pointer;
+        }
+
+        .seg button.on {
+            background: var(--accent);
+            color: var(--accent-ink);
+        }
+
+        .seg button.on.rem {
+            background: var(--danger);
+        }
+
+        #reader {
+            width: 100%;
+            margin-top: 12px;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        #status {
+            min-height: 1.4em;
+            color: var(--muted);
+            margin: 10px 0 0;
+        }
+
+        .row {
+            display: flex;
+            gap: 12px;
+            align-items: flex-start;
+        }
+
+        .cover {
+            width: 64px;
+            height: 96px;
+            object-fit: cover;
+            background: var(--line);
+            border-radius: 4px;
+            flex: none;
+        }
+
+        .qty {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin: 6px 0 12px;
+        }
+
+        .qty button {
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            border: 1px solid var(--line);
+            background: var(--card);
+            font-size: 20px;
+            cursor: pointer;
+        }
+
+        .item {
+            display: flex;
+            justify-content: space-between;
+            gap: 10px;
+            padding: 10px 0;
+            border-bottom: 1px solid var(--line);
+        }
+
+        .item small {
+            color: var(--muted);
+        }
+
+        .count {
+            font-family: var(--font-head);
+            font-size: 22px;
+        }
+
+        .hidden {
+            display: none !important;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="brand">LEXI <em>BOOKSTORE</em></div>
+        <nav>
+            <button data-tab="scan" class="on">Scan</button>
+            <button data-tab="inv">Inventory</button>
+            <button data-tab="set">Settings</button>
+        </nav>
+    </header>
+    <main>
+        <section id="scan" class="on">
+            <div class="seg">
+                <button id="mAdd" class="on">Add stock</button>
+                <button id="mRem" class="rem">Give out / remove</button>
+            </div>
+            <div id="reader"></div>
+            <p id="status">Point the camera at the barcode on the back of a book.</p>
+            <div class="row">
+                <input id="manual" placeholder="Or type an ISBN" inputmode="numeric">
+                <button class="btn alt" id="go" style="margin-top:4px">Look up</button>
+            </div>
+            <div id="confirm" class="card hidden">
+                <div class="row">
+                    <img id="cCover" class="cover" alt="">
+                    <div style="flex:1">
+                        <label>Title</label><input id="cTitle">
+                        <label>Author</label><input id="cAuthor">
+                    </div>
+                </div>
+                <small id="cIsbn" style="color:var(--muted)"></small>
+                <div class="qty">
+                    <button id="qMinus">−</button><span class="count" id="qVal">1</span><button id="qPlus">+</button>
+                </div>
+                <button class="btn" id="commit">Add to inventory</button>
+                <button class="btn alt" id="cancel">Cancel</button>
+            </div>
+        </section>
+
+        <section id="inv">
+            <div class="row" style="align-items:center">
+                <button class="btn alt" id="refresh">Refresh</button>
+                <button class="btn alt" id="csv">Export CSV</button>
+            </div>
+            <p id="invNote" style="color:var(--muted);font-size:13px"></p>
+            <div id="invList"></div>
+        </section>
+
+        <section id="set">
+            <div class="card">
+                <label>Google Sheet web app URL</label>
+                <input id="sUrl" placeholder="https://script.google.com/macros/s/.../exec">
+                <label>Passcode (same as in Code.gs)</label>
+                <input id="sToken" type="password">
+                <button class="btn" id="save">Save</button>
+                <p style="color:var(--muted);font-size:13px">Leave the URL blank to keep inventory in this browser only.
+                </p>
+            </div>
+        </section>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/html5-qrcode@2.3.8/html5-qrcode.min.js"></script>
+    <script>
+        const $ = id => document.getElementById(id);
+        const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+        const cfg = () => JSON.parse(localStorage.getItem("lexi_cfg") || "{}");
+        const localInv = () => JSON.parse(localStorage.getItem("lexi_inv") || "{}");
+        let mode = "add", qty = 1, pending = null, lookingUp = false;
+
+        // Tabs
+        document.querySelectorAll("nav button").forEach(b => b.onclick = () => {
+            document.querySelectorAll("nav button").forEach(x => x.classList.toggle("on", x === b));
+            document.querySelectorAll("section").forEach(s => s.classList.toggle("on", s.id === b.dataset.tab));
+            if (b.dataset.tab === "inv") loadInventory();
+        });
+
+        // Mode toggle
+        function setMode(m) {
+            mode = m;
+            $("mAdd").classList.toggle("on", m === "add");
+            $("mRem").classList.toggle("on", m === "rem");
+            $("commit").textContent = m === "add" ? "Add to inventory" : "Remove from inventory";
+            $("commit").classList.toggle("danger", m === "rem");
+        }
+        $("mAdd").onclick = () => setMode("add");
+        $("mRem").onclick = () => setMode("rem");
+
+        // Lookup
+        const validIsbn = s => /^(978|979)\d{10}$/.test(s) || /^\d{9}[\dX]$/.test(s);
+        async function lookup(isbn) {
+            if (pending || lookingUp) return;
+            if (!validIsbn(isbn)) { $("status").textContent = "That doesn't look like an ISBN: " + isbn; return; }
+            lookingUp = true;
+            $("status").textContent = "Looking up " + isbn + "…";
+            let book = { isbn, title: "", author: "", cover: "" };
+            try {
+                const r = await fetch(`https://openlibrary.org/api/books?bibkeys=ISBN:${isbn}&format=json&jscmd=data`);
+                const b = (await r.json())["ISBN:" + isbn];
+                if (b) book = { isbn, title: b.title, author: (b.authors || []).map(a => a.name).join(", "), cover: b.cover ? b.cover.medium : "" };
+                else $("status").textContent = "Not found in Open Library. Enter the title and author by hand.";
+            } catch (e) { $("status").textContent = "Lookup failed. You can still enter details by hand."; }
+            lookingUp = false;
+            showConfirm(book);
+        }
+        function showConfirm(b) {
+            pending = b; qty = 1; $("qVal").textContent = 1;
+            $("cTitle").value = b.title; $("cAuthor").value = b.author;
+            $("cCover").src = b.cover || ""; $("cIsbn").textContent = "ISBN " + b.isbn;
+            $("confirm").classList.remove("hidden");
+            if (b.title) $("status").textContent = "";
+        }
+        function closeConfirm() { pending = null; $("confirm").classList.add("hidden"); }
+        $("cancel").onclick = closeConfirm;
+        $("qMinus").onclick = () => { qty = Math.max(1, qty - 1); $("qVal").textContent = qty; };
+        $("qPlus").onclick = () => { qty++; $("qVal").textContent = qty; };
+        $("go").onclick = () => lookup($("manual").value.replace(/[-\s]/g, ""));
+
+        // Save to sheet (or this browser)
+        $("commit").onclick = async () => {
+            const title = $("cTitle").value.trim() || "Unknown title";
+            const author = $("cAuthor").value.trim() || "Unknown author";
+            const delta = mode === "add" ? qty : -qty;
+            const { url, token } = cfg();
+            $("commit").disabled = true;
+            try {
+                let total;
+                if (url) {
+                    const r = await fetch(url, {
+                        method: "POST", headers: { "Content-Type": "text/plain" },
+                        body: JSON.stringify({ token, isbn: pending.isbn, title, author, delta })
+                    });
+                    const res = await r.json();
+                    if (!res.ok) throw new Error(res.error);
+                    total = res.quantity;
+                } else {
+                    const inv = localInv(), cur = inv[pending.isbn] || { isbn: pending.isbn, title, author, quantity: 0 };
+                    if (cur.quantity + delta < 0 && cur.quantity === 0) throw new Error("That book is not in inventory yet");
+                    cur.quantity = Math.max(0, cur.quantity + delta); cur.title = title; cur.author = author;
+                    inv[pending.isbn] = cur; localStorage.setItem("lexi_inv", JSON.stringify(inv)); total = cur.quantity;
+                }
+                $("status").textContent = `${title}: ${total} in stock`;
+                closeConfirm(); $("manual").value = "";
+            } catch (e) { $("status").textContent = "Couldn't save: " + e.message; }
+            $("commit").disabled = false;
+        };
+
+        // Inventory view
+        let items = [];
+        async function loadInventory() {
+            const { url, token } = cfg();
+            $("invNote").textContent = url ? "Synced with your Google Sheet." : "Stored in this browser only. Connect a sheet in Settings.";
+            try {
+                if (url) {
+                    const r = await fetch(`${url}?token=${encodeURIComponent(token || "")}`);
+                    const res = await r.json();
+                    if (!res.ok) throw new Error(res.error);
+                    items = res.items;
+                } else items = Object.values(localInv());
+            } catch (e) { $("invNote").textContent = "Couldn't load inventory: " + e.message; items = []; }
+            $("invList").innerHTML = items.length ? items.map(i => `
+    <div class="item"><div><strong>${esc(i.title)}</strong><br>${esc(i.author)}<br><small>ISBN ${esc(i.isbn)}</small></div>
+    <div class="count">${esc(i.quantity)}</div></div>`).join("") : "<p>No books yet.</p>";
+        }
+        $("refresh").onclick = loadInventory;
+        $("csv").onclick = () => {
+            const q = v => `"${String(v ?? "").replace(/"/g, '""')}"`;
+            const csv = ["ISBN,Title,Author,Quantity", ...items.map(i => [i.isbn, i.title, i.author, i.quantity].map(q).join(","))].join("\n");
+            const a = document.createElement("a");
+            a.href = URL.createObjectURL(new Blob([csv], { type: "text/csv" })); a.download = "lexibooks-inventory.csv"; a.click();
+        };
+
+        // Settings
+        $("sUrl").value = cfg().url || ""; $("sToken").value = cfg().token || "";
+        $("save").onclick = () => {
+            localStorage.setItem("lexi_cfg", JSON.stringify({ url: $("sUrl").value.trim(), token: $("sToken").value }));
+            $("status").textContent = "Settings saved.";
+        };
+
+        // Scanner
+        new Html5Qrcode("reader").start(
+            { facingMode: "environment" },
+            {
+                fps: 10, qrbox: { width: 280, height: 120 },
+                formatsToSupport: [Html5QrcodeSupportedFormats.EAN_13, Html5QrcodeSupportedFormats.EAN_8]
+            },
+            text => lookup(text), () => { }
+        ).catch(err => { $("status").textContent = "Camera error: " + err; });
+        setMode("add");
+    </script>
+</body>
+
+</html>
