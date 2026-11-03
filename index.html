@@ -493,20 +493,31 @@
         </button>`).join('');
     }
 
-    async function loadBooks() {
-      if (!window.lexiDb?.configured) {
-        countEl.textContent = 'Shelf not connected — fill in supabase-config.js.';
-        return;
+    // Live inventory from Supabase, falling back to shelf.json (a snapshot
+    // of the inventory seed) when the database is unconfigured or down.
+    async function fetchShelf() {
+      if (window.lexiDb?.configured) {
+        try {
+          const rows = await window.lexiDb.select('books', {
+            select: '*,copies(status)',
+            order: 'title.asc'
+          });
+          return rows.map(b => ({
+            ...b,
+            available: (b.copies || []).filter(c => c.status === 'available').length
+          }));
+        } catch (error) {
+          console.warn('Supabase unavailable, using shelf.json:', error);
+        }
       }
+      const response = await fetch('shelf.json');
+      if (!response.ok) throw new Error(`shelf.json ${response.status}`);
+      return response.json();
+    }
+
+    async function loadBooks() {
       try {
-        const rows = await window.lexiDb.select('books', {
-          select: '*,copies(status)',
-          order: 'title.asc'
-        });
-        allBooks = rows.map(b => ({
-          ...b,
-          available: (b.copies || []).filter(c => c.status === 'available').length
-        }));
+        allBooks = await fetchShelf();
         buildFilters();
         renderBooks();
       } catch (error) {
